@@ -11,14 +11,14 @@ const Login = () => {
         navigate("/")
     }
     return (
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center font-poppins">
             <div className="w-[50%] flex justify-center items-center">
-                <img src="/public/Login_left_logo.jpg" alt="left_logo" className=" h-screen object-cover w-[80%]" />
+                <img src="/Login_left_logo.jpg" alt="left_logo" className=" h-screen object-cover w-[80%]" />
             </div>
             <div className="w-[50%] flex justify-center items-center p-2 font-semibold">
                 <div className="flex flex-col justify-center items-center w-[70%] p-2 gap-5 border-2 rounded-md">
                     <div className="mt-5">
-                        <img src="/public/LOGO.png" alt="logo" className="w-20 h-20 object-cover" />
+                        <img src="/LOGO.png" alt="logo" className="w-20 h-20 object-cover" />
                     </div>
                     <div>
                         <p>Welcome Please Login to your account</p>
