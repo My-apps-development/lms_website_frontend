@@ -110,6 +110,42 @@ const Dashboard = () => {
           </div>
         </div>
 
+        <div className="flex justify-around items-center gap-5 p-10">
+          <div className="flex flex-col gap-2 w-[50%] p-2">
+            <div>
+              <h1 className="text-4xl text-[#0C0531]">Training Offered Roles and Modules</h1>
+            </div>
+            <div>
+              <h1 className="text-xl text-[#B32073]">For Logistics Business -</h1>
+              <p>Modules Covered & Topics</p>
+            </div>
+            <div>
+              <div>
+                <h1>Defensive Driving Skills</h1>
+                <p>Road Signs , Road Marking, Common Causes of Road Crashes and safe driving skills with practical tips from Industry Seniors who have been driving on Indian Roads for more. than 2 Decades. Total Modules – 4 Nos of 60 Mins with each Module having assessment .</p>
+              </div>
+              <div>
+                <h1>1st Aid Training</h1>
+                <p>Introduction to 1st Aid Kit and their usage and introduction to 1st aid training in accident-related 1st aid. 2nd Modules will be Advanced 1st Aid for every 100 Learners with good communication skills and understanding .</p>
+              </div>
+
+              <div>
+                <h1>POSH Training</h1>
+                <p>Prevention of Sexual Harassment in Workplace Law of 2013 Training by POSH Certified Trainer for 60 Minutes with assessment .</p>
+                <p></p>
+              </div>
+
+              <div>
+                <h1>Grooming with Personal Grooming</h1>
+                <p>Effective Communication, & Hygiene Practices for 60 Minutes with Assessment </p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <img src="/Banners/Library_banner.jpeg" alt="" className="w-[700px] h-[594px] object-cover"/>
+          </div>
+        </div>
+
         <div className="flex justify-around items-center gap-10 p-5 mt-5 mx-16">
           <div>
             <img src="/Banners/Library_banner.jpeg" alt="" className="w-[700px] h-[594px] object-cover" />
