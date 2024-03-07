@@ -1,18 +1,21 @@
-import { NavLink } from "react-router-dom"
+import { NavLink, useNavigate } from "react-router-dom"
 
 
 const Header = () => {
+    const navigate = useNavigate()
     return (
-        <header className="font-nunito shadow-xl text-[#827A7A] font-semibold  w-full  bg-white p-2 sticky top-0 ">
+        <header className="font-nunito shadow-xl text-[#827A7A] font-semibold  w-full  bg-white p-2 sticky top-0 z-10">
             <nav className="flex w-full justify-around items-center p-2 " >
-                <div>
-                    <img src="/LOGO.png" alt="" className="w-14 h-14" />
+                <div onClick={()=>navigate("/")}>
+                    <img src="/LOGO.png" alt="" className="w-14 h-14 cursor-pointer" />
                 </div>
                 <div className="flex justify-center items-center gap-10 p-2">
 
-                    <div className="p-2">
-                        <p>Home</p>
-                    </div>
+                    <NavLink to="/">
+                        <div className="p-2">
+                            <p>Home</p>
+                        </div>
+                    </NavLink>
 
 
                     <NavLink to="/library">
