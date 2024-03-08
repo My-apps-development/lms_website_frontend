@@ -1,8 +1,23 @@
+import { useState } from "react"
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
+import Quiz from "./quiz.json"
 
 
 const StartQuiz = () => {
+
+    const [currentQuestion, setCurrentQuestion] = useState(0)
+
+    const previousQuestion = () => {
+      
+        setCurrentQuestion((prev) => Math.max(prev - 1, 0));
+    }
+
+    const nextQuestion = () => {
+        setCurrentQuestion((next) => next + 1)
+    }
+
+    const currentQuizNumber = Quiz.Quiz[currentQuestion]
     return (
         <div>
             <Header />
@@ -14,27 +29,29 @@ const StartQuiz = () => {
                     <div className="bg-[#B32073] p-2">
                         <div className="flex gap-5 p-10  text-2xl text-white ml-32">
                             <div className="w-10 h-10 rounded-full bg-white flex justify-center items-center">
-                                <p className="text-black">1</p>
+                                <p className="text-black">{currentQuizNumber.id}</p>
                             </div>
                             <div className="w-full flex flex-wrap">
-                                <h4>In what year did the United States host the FIFA World Cup for the first time?</h4>
+                                <h4>{currentQuizNumber.question}</h4>
                             </div>
                         </div>
                     </div>
-                    <div className="w-full flex justify-center items-center my-10 p-2">
-                        <div className="grid grid-cols-2 w-[70%] p-2 gap-5">
-                            <p>A. 1986</p>
-                            <p>A. 1994</p>
-                            <p>A. 1998</p>
-                            <p>A. 1987</p>
+                    <div className="w-full flex justify-center items-center my-10 p-2 flex-col">
+                        <div className="grid grid-cols-2 w-[70%] p-2 gap-5 place-items-center">
+                            <p className="bg-gray-600 w-56 py-2 px-5 text-center text-white">A. {currentQuizNumber.option_A}</p>
+                            <p className="bg-gray-600 w-56 py-2 px-5 text-center text-white">B. {currentQuizNumber.option_B}</p>
+                            <p className="bg-gray-600 w-56 py-2 px-5 text-center text-white">C. {currentQuizNumber.option_C}</p>
+                            <p className="bg-gray-600 w-56 py-2 px-5 text-center text-white">D. {currentQuizNumber.option_D}</p>
+                        </div>
+
+                        <div className="w-[80%] my-10 p-2">
+                            <div className="flex justify-between items-center gap-10">
+                                <button className="p-2 bg-[#B32073] text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073] disabled:bg-gray-600" onClick={previousQuestion} disabled = {currentQuizNumber == 1}>Previous</button>
+                                <button className="p-2 bg-[#B32073] text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073] disabled:bg-gray-600" onClick={nextQuestion} disabled={currentQuizNumber == Quiz.Quiz.length - 1}>Next</button>
+                            </div>
                         </div>
                     </div>
-                    <div className="w-[30%] mx-64  my-10 p-2">
-                        <div className="flex justify-between items-center gap-10">
-                            <button className="p-2 bg-[#B32073] text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073]">Previous</button>
-                            <button className="p-2 bg-[#B32073] text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073]">Next</button>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <Footer />

@@ -1,0 +1,40 @@
+{
+    "Quiz": [
+        {
+            "id": 1,
+            "question": "What is the capital of Japan?",
+            "option_A": "Seoul",
+            "option_B": "Beijing",
+            "option_C": "Tokyo",
+            "option_D": "Bangkok",
+            "correct_answer":"Tokyo"
+        },
+        {
+            "id": 2,
+            "question": "Which planet is known as the Red Planet?",
+            "option_A": "Earth",
+            "option_B": "Mars",
+            "option_C": "Venus",
+            "option_D": "Jupiter",
+            "correct_answer":"Mars"
+        },
+        {
+            "id": 3,
+            "question": "Who wrote the play 'Romeo and Juliet'?",
+            "option_A": "William Shakespeare",
+            "option_B": "Charles Dickens",
+            "option_C": "Jane Austen",
+            "option_D": "Leo Tolstoy",
+            "correct_answer":"William Shakespeare"
+        },
+        {
+            "id": 4,
+            "question": "What is the largest mammal on Earth?",
+            "option_A": "Elephant",
+            "option_B": "Blue Whale",
+            "option_C": "Giraffe",
+            "option_D": "Hippopotamus",
+            "correct_answer":"Blue Whale"
+        }
+    ]
+}
