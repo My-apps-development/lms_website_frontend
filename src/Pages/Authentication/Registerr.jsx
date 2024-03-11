@@ -1,164 +1,166 @@
-import { useState } from "react";
-import { FaArrowRightLong } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
-import { axiosInstance } from "../../Utils/AxiosSetup";
-import { errorMessage, successMessage } from "../../Utils/NotificationManager";
-import { Box, Modal } from "@mui/material";
+// import { useState } from "react";
+// import { FaArrowRightLong } from "react-icons/fa6";
+// import { useNavigate } from "react-router-dom";
+// import { axiosInstance } from "../../Utils/AxiosSetup";
+// import { errorMessage, successMessage } from "../../Utils/NotificationManager";
+// import { Box, Modal } from "@mui/material";
+
+import ProfileStepper from "./ProfileStepper"
 
 
-const Register = () => {
-    const navigate = useNavigate()
+const Login = () => {
+    // const navigate = useNavigate()
 
-    const [activeButton, setActiveButton] = useState(null)
-    const [isModalOpen, setIsModalOpen] = useState(false)
-    const [phone, setPhone] = useState("")
-    const [companyList, setCompanyList] = useState([])
-    const [UploadLicense, setUploadLicense] = useState(null)
-    const [fileDisplay, setFileDisplay] = useState(null)
+    // const [activeButton, setActiveButton] = useState(null)
+    // const [isModalOpen, setIsModalOpen] = useState(false)
+    // const [phone, setPhone] = useState("")
+    // const [companyList, setCompanyList] = useState([])
+    // const [UploadLicense, setUploadLicense] = useState(null)
+    // const [fileDisplay, setFileDisplay] = useState(null)
 
-    const [profileInputs, setProfileInputs] = useState({
-        fullname: "",
-        license_num: "",
-        companyid: ""
-    })
+    // const [profileInputs, setProfileInputs] = useState({
+    //     fullname: "",
+    //     license_num: "",
+    //     companyid: ""
+    // })
 
-    const [otp, setOtp] = useState("")
-
-
-    const style = {
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        width: 800,
-        bgcolor: 'background.paper',
-        border: '2px solid transparent',
-        boxShadow: 24,
-        overflowY: 'auto',
-        p: 4,
-    };
-
-    const handleClick = (e) => {
-        e.preventDefault()
-
-        setActiveButton(e.target.textContent)
-    }
-
-    const handleChange = (e) => {
-        e.preventDefault()
-
-        setPhone(e.target.value)
-    }
-
-    const handleChangeProfile = (e) => {
-        e.preventDefault()
-
-        setProfileInputs({ ...profileInputs, [e.target.name]: e.target.value })
-
-    }
-
-    const handleChangeProfileImage = (e) => {
-        e.preventDefault()
-
-        const file = e.target.files[0]
-        if (file) {
-            const reader = new FileReader()
-            console.log(reader);
-            reader.onloadend = () => {
-                setFileDisplay(reader.result)
-            }
-            reader.readAsDataURL(file);
-        }
-        setUploadLicense(file)
+    // const [otp, setOtp] = useState("")
 
 
-    }
+    // const style = {
+    //     position: 'absolute',
+    //     top: '50%',
+    //     left: '50%',
+    //     transform: 'translate(-50%, -50%)',
+    //     width: 800,
+    //     bgcolor: 'background.paper',
+    //     border: '2px solid transparent',
+    //     boxShadow: 24,
+    //     overflowY: 'auto',
+    //     p: 4,
+    // };
+
+    // const handleClick = (e) => {
+    //     e.preventDefault()
+
+    //     setActiveButton(e.target.textContent)
+    // }
+
+    // const handleChange = (e) => {
+    //     e.preventDefault()
+
+    //     setPhone(e.target.value)
+    // }
+
+    // const handleChangeProfile = (e) => {
+    //     e.preventDefault()
+
+    //     setProfileInputs({ ...profileInputs, [e.target.name]: e.target.value })
+
+    // }
+
+    // const handleChangeProfileImage = (e) => {
+    //     e.preventDefault()
+
+    //     const file = e.target.files[0]
+    //     if (file) {
+    //         const reader = new FileReader()
+    //         console.log(reader);
+    //         reader.onloadend = () => {
+    //             setFileDisplay(reader.result)
+    //         }
+    //         reader.readAsDataURL(file);
+    //     }
+    //     setUploadLicense(file)
 
 
-    console.log(otp);
+    // }
 
 
+    // console.log(otp);
 
 
 
-    const AddPhoneNumber = async (e) => {
-        e.preventDefault()
-        const formData = new FormData()
-        formData.append("role", activeButton?.toLowerCase()?.trim())
-        formData.append("phone", phone)
 
-        try {
-            const response = await axiosInstance.post("/addphone", formData, {
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            const data = await response?.data
-            successMessage(data?.message);
-        } catch (error) {
-            errorMessage(error?.response?.data?.message)
-            console.log("error posting data", error.message);
-        }
-    }
 
-    const SendOtp = async (e) => {
-        e.preventDefault()
+    // const AddPhoneNumber = async (e) => {
+    //     e.preventDefault()
+    //     const formData = new FormData()
+    //     formData.append("role", activeButton?.toLowerCase()?.trim())
+    //     formData.append("phone", phone)
 
-        const postOtp = new FormData()
-        postOtp.append("otp", otp)
-        postOtp.append("phone", phone)
+    //     try {
+    //         const response = await axiosInstance.post("/addphone", formData, {
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             }
+    //         })
+    //         const data = await response?.data
+    //         successMessage(data?.message);
+    //     } catch (error) {
+    //         errorMessage(error?.response?.data?.message)
+    //         console.log("error posting data", error.message);
+    //     }
+    // }
 
-        try {
-            const response = await axiosInstance.post("/verifyOtp", postOtp, {
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            const data = await response?.data
-            console.log(data);
-            setCompanyList(data?.companiesdata)
-            localStorage.setItem("user", JSON.stringify(data?.user))
-            localStorage.setItem("token", JSON.stringify(data?.accessToken))
+    // const SendOtp = async (e) => {
+    //     e.preventDefault()
 
-            // setIsModalOpen(true)
-            // console.log(data);
-            successMessage("Login success")
-            navigate("/")
-        } catch (error) {
+    //     const postOtp = new FormData()
+    //     postOtp.append("otp", otp)
+    //     postOtp.append("phone", phone)
 
-            console.log("error posting otp", error.message);
-        }
-    }
+    //     try {
+    //         const response = await axiosInstance.post("/verifyOtp", postOtp, {
+    //             headers: {
+    //                 "Content-Type": "application/json"
+    //             }
+    //         })
+    //         const data = await response?.data
+    //         console.log(data);
+    //         setCompanyList(data?.companiesdata)
+    //         localStorage.setItem("user", JSON.stringify(data?.user))
+    //         localStorage.setItem("token", JSON.stringify(data?.accessToken))
 
-    const UploadProfile = async (e) => {
-        e.preventDefault()
+    //         // setIsModalOpen(true)
+    //         // console.log(data);
+    //         successMessage("Login success")
+    //         navigate("/")
+    //     } catch (error) {
 
-        const PostProfile = new FormData()
-        PostProfile.append("fullname", profileInputs?.fullname)
-        PostProfile.append("license_num", profileInputs?.license_num)
-        PostProfile.append("companyid", profileInputs?.companyid)
-        PostProfile.append("upload_license", UploadLicense)
+    //         console.log("error posting otp", error.message);
+    //     }
+    // }
 
-        try {
-            const response = await axiosInstance.post("/userDetail", PostProfile, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                }
-            })
-            const data = await response?.data
-            successMessage(data?.message)
-            navigate("/")
+    // const UploadProfile = async (e) => {
+    //     e.preventDefault()
 
-        } catch (error) {
-            console.log("Error Posting Profile Details", error.message);
-        }
-    }
+    //     const PostProfile = new FormData()
+    //     PostProfile.append("fullname", profileInputs?.fullname)
+    //     PostProfile.append("license_num", profileInputs?.license_num)
+    //     PostProfile.append("companyid", profileInputs?.companyid)
+    //     PostProfile.append("upload_license", UploadLicense)
 
-    const handleNavigateLogin = (e) => {
-         e.preventDefault()
+    //     try {
+    //         const response = await axiosInstance.post("/userDetail", PostProfile, {
+    //             headers: {
+    //                 'Content-Type': 'multipart/form-data',
+    //             }
+    //         })
+    //         const data = await response?.data
+    //         successMessage(data?.message)
+    //         navigate("/")
 
-         navigate("/register")
-    }
+    //     } catch (error) {
+    //         console.log("Error Posting Profile Details", error.message);
+    //     }
+    // }
+
+    // const handleNavigateRegister = (e) => {
+    //     e.preventDefault()
+
+    //     navigate("/register")
+    // }
 
 
 
@@ -174,8 +176,11 @@ const Register = () => {
             <div className="w-[50%] flex justify-center items-center">
                 <img src="/Login_left_logo.jpg" alt="left_logo" className=" h-screen object-cover w-[80%]" />
             </div>
-            <div className="w-[50%] flex justify-center items-center p-2 font-semibold">
-                <div className="flex flex-col justify-center items-center w-[70%] p-2 gap-5 border-2 rounded-md">
+            <div className="w-[50%] flex justify-center items-center p-2 font-semibold border-2 rounded-md">
+                <ProfileStepper />
+
+
+                {/* <div className="flex flex-col justify-center items-center w-[70%] p-2 gap-5 border-2 rounded-md">
                     <div className="mt-5">
                         <img src="/LOGO.png" alt="logo" className="w-20 h-20 object-cover" />
                     </div>
@@ -187,7 +192,7 @@ const Register = () => {
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "House Keeper" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>House Keeper</button>
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Security Guard" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Security Guard</button>
 
-                        {/* className={({ isActive, isPending }) => isPending ? "flex  flex-row items-center duration-300 hover:shadow-xl hover:scale-105 hover:text-[#B32073]  pr-6" : isActive ? "flex text-[#B32073] flex-row items-center duration-300 scale-105 pr-6 bg-gray-300  rounded hover:text-[#B32073] hover:shadow-xl " : "text-gray-500"} */}
+          
 
 
 
@@ -203,14 +208,13 @@ const Register = () => {
                     <div className="w-[70%] flex justify-center items-center p-2">
                         <button className="p-2 w-full rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300" onClick={SendOtp}>Login <FaArrowRightLong className="scale-95 duration-300" /> </button>
                     </div>
-                    <div className="">
-                      
-                        <p className="uppercase text-red-700 cursor-pointer" onClick={handleNavigateLogin}>Don't have an account Register here</p>
+                    <div className="uppercase text-red-700">
+                        <p onClick={handleNavigateRegister} className="cursor-pointer">Don't have an account, Register here</p>
                     </div>
-                </div>
+                </div> */}
             </div>
 
-            <div>
+            {/* <div>
                 <Modal
                     open={isModalOpen}
                 >
@@ -266,10 +270,10 @@ const Register = () => {
                         </div>
                     </Box>
                 </Modal>
-            </div>
+            </div> */}
 
         </div>
     )
 }
 
-export default Register
+export default Login

@@ -17,7 +17,11 @@ const StartQuiz = () => {
         setCurrentQuestion((next) => next + 1)
     }
 
+    console.log(currentQuestion);
+
     const currentQuizNumber = Quiz.Quiz[currentQuestion]
+
+    console.log(currentQuizNumber);
     return (
         <div>
             <Header />
@@ -45,9 +49,9 @@ const StartQuiz = () => {
                         </div>
 
                         <div className="w-[80%] my-10 p-2">
-                            <div className="flex justify-between items-center gap-10">
-                                <button className="p-2 bg-[#B32073] text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073] disabled:bg-gray-600" onClick={previousQuestion} disabled = {currentQuizNumber == 1}>Previous</button>
-                                <button className="p-2 bg-[#B32073] text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073] disabled:bg-gray-600" onClick={nextQuestion} disabled={currentQuizNumber == Quiz.Quiz.length - 1}>Next</button>
+                            <div className="flex justify-between items-center gap-10 ">
+                                <button className={`p-2 bg-[#B32073] w-32 text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073] disabled:bg-gray-600 ${currentQuestion === 0 ? "invisible" : ""}`} onClick={previousQuestion} disabled = {currentQuizNumber === 0}>Previous</button>
+                                <button className={`p-2 bg-[#B32073] w-32 text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073] disabled:bg-gray-600 `} onClick={nextQuestion} disabled={currentQuizNumber == Quiz.Quiz.length - 1}>{currentQuestion === Quiz.Quiz.length -1 ? "Submit" : "Next"}</button>
                             </div>
                         </div>
                     </div>

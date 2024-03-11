@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import { axiosInstance } from "../../Utils/AxiosSetup";
-import { errorMessage, successMessage } from "../../Utils/NotificationManager";
+
 import { Box, Modal } from "@mui/material";
+import { axiosInstance } from "../../../Utils/AxiosSetup";
+import { errorMessage, successMessage } from "../../../Utils/NotificationManager";
 
 
-const Register = () => {
+const FirstPage = ({ onNext, onCompanyListChange }) => {
     const navigate = useNavigate()
 
     const [activeButton, setActiveButton] = useState(null)
@@ -120,10 +121,13 @@ const Register = () => {
             localStorage.setItem("user", JSON.stringify(data?.user))
             localStorage.setItem("token", JSON.stringify(data?.accessToken))
 
+            onCompanyListChange(data?.companiesdata)
+            onNext()
+
             // setIsModalOpen(true)
             // console.log(data);
-            successMessage("Login success")
-            navigate("/")
+            successMessage("Otp Verify Success")
+            // navigate("/")
         } catch (error) {
 
             console.log("error posting otp", error.message);
@@ -154,10 +158,10 @@ const Register = () => {
         }
     }
 
-    const handleNavigateLogin = (e) => {
-         e.preventDefault()
+    const handleNavigateRegister = (e) => {
+        e.preventDefault()
 
-         navigate("/register")
+        navigate("/login")
     }
 
 
@@ -170,17 +174,17 @@ const Register = () => {
     //     navigate("/login")
     // }
     return (
-        <div className="flex justify-center items-center font-poppins">
-            <div className="w-[50%] flex justify-center items-center">
+        <div className="flex justify-center items-center font-poppins ">
+            {/* <div className="w-[50%] flex justify-center items-center">
                 <img src="/Login_left_logo.jpg" alt="left_logo" className=" h-screen object-cover w-[80%]" />
-            </div>
-            <div className="w-[50%] flex justify-center items-center p-2 font-semibold">
-                <div className="flex flex-col justify-center items-center w-[70%] p-2 gap-5 border-2 rounded-md">
+            </div> */}
+            <div className="flex justify-center items-center p-2 font-semibold w-full">
+                <div className="flex flex-col justify-center items-center w-[90%] p-2 gap-5  rounded-md">
                     <div className="mt-5">
                         <img src="/LOGO.png" alt="logo" className="w-20 h-20 object-cover" />
                     </div>
                     <div>
-                        <p>Welcome Please Login to your account</p>
+                        <p>Welcome Please Register to your account</p>
                     </div>
                     <div className="flex flex-col w-[70%] gap-4 p-2">
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Driver" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Driver</button>
@@ -201,11 +205,10 @@ const Register = () => {
                         <input type="text" name="otp" id="otp" className="w-full p-2 border-2 rounded-lg border-gray-300 focus:outline-[#B32073] focus:outline-1" placeholder="Enter Code" onChange={(e) => setOtp(e.target.value)} />
                     </div>
                     <div className="w-[70%] flex justify-center items-center p-2">
-                        <button className="p-2 w-full rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300" onClick={SendOtp}>Login <FaArrowRightLong className="scale-95 duration-300" /> </button>
+                        <button className="p-2 w-full rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300" onClick={SendOtp}>Verify Otp <FaArrowRightLong className="scale-95 duration-300" /> </button>
                     </div>
-                    <div className="">
-                      
-                        <p className="uppercase text-red-700 cursor-pointer" onClick={handleNavigateLogin}>Don't have an account Register here</p>
+                    <div className="uppercase text-red-700">
+                        <p onClick={handleNavigateRegister} className="cursor-pointer">Already have an account, Login here</p>
                     </div>
                 </div>
             </div>
@@ -272,4 +275,4 @@ const Register = () => {
     )
 }
 
-export default Register
+export default FirstPage
