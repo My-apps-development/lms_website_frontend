@@ -1,9 +1,13 @@
 import { FaArrowRightLong } from "react-icons/fa6"
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
+import { useEffect } from "react"
 
 
 const VideoView = () => {
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
     return (
         <div className="font-nunito font-semibold text-[#827A7A]">
             <Header />
@@ -11,7 +15,7 @@ const VideoView = () => {
                 <div className="ml-20 mt-6">
                     <h1>Home/Introduction</h1>
                 </div>
-                <div className="flex justify-center items-center">
+                <div className="flex justify-center items-center" data-aos = "fade-down">
                     <video controls width="90%" className="h-96" autoPlay>
                         <source src="/video/5124655_people_person_man_3840x2160.mp4" type="video/mp4" />
                     </video>
@@ -19,16 +23,16 @@ const VideoView = () => {
 
                 <div className="ml-20 p-5 w-[90%]">
                     <div className="flex flex-col gap-1">
-                        <h1 className="text-3xl font-bold p-2">Advaya FM Introduction</h1>
-                        <p className="text-[#B32073] p-2">Advaya FM</p>
-                        <p className="p-2"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus optio maiores ullam voluptatum velit voluptates eveniet nostrum nulla soluta illo inventore vitae, dicta maxime doloribus id quibusdam a aliquam eius officiis excepturi distinctio. Hic laboriosam eius placeat, eos reiciendis molestias rerum eligendi excepturi quasi tempore iusto minima repellat fugiat optio.</p>
+                        <h1 className="text-3xl font-bold p-2" data-aos = "fade-left">Advaya FM Introduction</h1>
+                        <p className="text-[#B32073] p-2" data-aos = "fade-left">Advaya FM</p>
+                        <p className="p-2" data-aos = "fade-left"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus optio maiores ullam voluptatum velit voluptates eveniet nostrum nulla soluta illo inventore vitae, dicta maxime doloribus id quibusdam a aliquam eius officiis excepturi distinctio. Hic laboriosam eius placeat, eos reiciendis molestias rerum eligendi excepturi quasi tempore iusto minima repellat fugiat optio.</p>
                     </div>
                     <div className="flex w-full p-2 font-semibold text-xl">
                         <button className="p-2 w-full rounded-lg border-2 border-[#C4C4C4] flex justify-center items-center gap-2 bg-[#C4C4C4] text-white hover:scale-95 hover:duration-300" >Assessment</button>
                     </div>
-                    <div className="flex gap-3 mt-3">
-                    <button className="p-2 w-32 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300" >&lt; Previous</button>
-                    <button className="p-2 w-36 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300" >Next Chapter  &gt;</button>
+                    <div className="flex gap-3 mt-3 p-2">
+                    <button className="p-2 w-32 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300" data-aos = "flip-left">&lt; Previous</button>
+                    <button className="p-2 w-36 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300" data-aos = "flip-right">Next Chapter  &gt;</button>
                     </div>
                 </div>
             </div>

@@ -2,11 +2,16 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
 import { FaArrowRightLong } from "react-icons/fa6";
+import { useEffect } from "react";
 
 
 const Library = () => {
 
     const navigate = useNavigate()
+
+    useEffect(()=>{
+        window.scrollTo(0,0)
+    },[])
     return (
         <div className="font-nunito text-[#827A7A]">
             <Header />
@@ -27,7 +32,7 @@ const Library = () => {
                 </div>
                 <div className="p-2 grid grid-cols-3 gap-5 mt-10">
 
-                    <div className="w-full rounded p-2 border-2" >
+                    <div className="w-full rounded p-2 border-2" data-aos = "flip-left">
                         <div>
                             <img src="https://img.freepik.com/free-photo/woman-male-driving-instructor-driving-test_52683-101120.jpg?t=st=1709371067~exp=1709374667~hmac=a0b290717ca1ccf9afb5ce161f901b4cc411e4432c558c08e33f29d40002c3ee&w=1060" alt="img" className="w-full h-60 rounded" />
                         </div>
@@ -45,7 +50,7 @@ const Library = () => {
                         </div>
                     </div>
 
-                    <div className="w-full rounded p-2 border-2">
+                    <div className="w-full rounded p-2 border-2" data-aos = "flip-left">
                         <div>
                             <img src="https://img.freepik.com/free-photo/woman-male-driving-instructor-driving-test_52683-101120.jpg?t=st=1709371067~exp=1709374667~hmac=a0b290717ca1ccf9afb5ce161f901b4cc411e4432c558c08e33f29d40002c3ee&w=1060" alt="img" className="w-full h-60 rounded" />
                         </div>
@@ -63,7 +68,7 @@ const Library = () => {
                         </div>
                     </div>
 
-                    <div className="w-full rounded p-2 border-2">
+                    <div className="w-full rounded p-2 border-2" data-aos = "flip-left">
                         <div>
                             <img src="https://img.freepik.com/free-photo/woman-male-driving-instructor-driving-test_52683-101120.jpg?t=st=1709371067~exp=1709374667~hmac=a0b290717ca1ccf9afb5ce161f901b4cc411e4432c558c08e33f29d40002c3ee&w=1060" alt="img" className="w-full h-60 rounded" />
                         </div>
@@ -81,7 +86,7 @@ const Library = () => {
                         </div>
                     </div>
 
-                    <div className="w-full rounded p-2 border-2">
+                    <div className="w-full rounded p-2 border-2" data-aos = "flip-left">
                         <div>
                             <img src="https://img.freepik.com/free-photo/businesman-working-computer_1098-21050.jpg?t=st=1709371933~exp=1709375533~hmac=b7ac709dff33a203b639a680f94e6f53974d3573ac7ed6e0bfabe272f0a5f65d&w=1060" alt="img" className="w-full h-60 rounded" />
                         </div>
@@ -99,7 +104,7 @@ const Library = () => {
                         </div>
                     </div>
 
-                    <div className="w-full rounded p-2 border-2">
+                    <div className="w-full rounded p-2 border-2" data-aos = "flip-left">
                         <div>
                             <img src="https://img.freepik.com/free-photo/businesman-working-computer_1098-21050.jpg?t=st=1709371933~exp=1709375533~hmac=b7ac709dff33a203b639a680f94e6f53974d3573ac7ed6e0bfabe272f0a5f65d&w=1060" alt="img" className="w-full h-60 rounded" />
                         </div>
@@ -117,7 +122,7 @@ const Library = () => {
                         </div>
                     </div>
 
-                    <div className="w-full rounded p-2 border-2">
+                    <div className="w-full rounded p-2 border-2" data-aos = "flip-left">
                         <div>
                             <img src="https://img.freepik.com/free-photo/businesman-working-computer_1098-21050.jpg?t=st=1709371933~exp=1709375533~hmac=b7ac709dff33a203b639a680f94e6f53974d3573ac7ed6e0bfabe272f0a5f65d&w=1060" alt="img" className="w-full h-60 rounded" />
                         </div>
@@ -137,13 +142,13 @@ const Library = () => {
                 </div>
             </div>
 
-            <div className="p-2 mt-5 w-[90%] mx-20">
+            <div className="p-2 mt-5 w-[90%] mx-20" >
                 <div className="mt-5 p-3">
                     <h1 className="text-4xl font-bold">Recently Viewed</h1>
                 </div>
                 <div className="p-2 grid grid-cols-3 gap-5 mt-10">
 
-                    <div className="w-full rounded p-2 border-2">
+                    <div className="w-full rounded p-2 border-2" data-aos = "flip-right">
                         <div>
                             <img src="https://img.freepik.com/free-photo/woman-male-driving-instructor-driving-test_52683-101120.jpg?t=st=1709371067~exp=1709374667~hmac=a0b290717ca1ccf9afb5ce161f901b4cc411e4432c558c08e33f29d40002c3ee&w=1060" alt="img" className="w-full h-60 rounded" />
                         </div>
@@ -161,7 +166,7 @@ const Library = () => {
                         </div>
                     </div>
 
-                    <div className="w-full rounded p-2 border-2">
+                    <div className="w-full rounded p-2 border-2" data-aos = "flip-right">
                         <div>
                             <img src="https://img.freepik.com/free-photo/woman-male-driving-instructor-driving-test_52683-101120.jpg?t=st=1709371067~exp=1709374667~hmac=a0b290717ca1ccf9afb5ce161f901b4cc411e4432c558c08e33f29d40002c3ee&w=1060" alt="img" className="w-full h-60 rounded" />
                         </div>
@@ -179,7 +184,7 @@ const Library = () => {
                         </div>
                     </div>
 
-                    <div className="w-full rounded p-2 border-2">
+                    <div className="w-full rounded p-2 border-2" data-aos = "flip-right">
                         <div>
                             <img src="https://img.freepik.com/free-photo/woman-male-driving-instructor-driving-test_52683-101120.jpg?t=st=1709371067~exp=1709374667~hmac=a0b290717ca1ccf9afb5ce161f901b4cc411e4432c558c08e33f29d40002c3ee&w=1060" alt="img" className="w-full h-60 rounded" />
                         </div>
@@ -197,7 +202,7 @@ const Library = () => {
                         </div>
                     </div>
 
-                    <div className="w-full rounded p-2 border-2">
+                    <div className="w-full rounded p-2 border-2" data-aos = "flip-right" >
                         <div>
                             <img src="https://img.freepik.com/free-photo/businesman-working-computer_1098-21050.jpg?t=st=1709371933~exp=1709375533~hmac=b7ac709dff33a203b639a680f94e6f53974d3573ac7ed6e0bfabe272f0a5f65d&w=1060" alt="img" className="w-full h-60 rounded" />
                         </div>
@@ -215,7 +220,7 @@ const Library = () => {
                         </div>
                     </div>
 
-                    <div className="w-full rounded p-2 border-2">
+                    <div className="w-full rounded p-2 border-2" data-aos = "flip-right">
                         <div>
                             <img src="https://img.freepik.com/free-photo/businesman-working-computer_1098-21050.jpg?t=st=1709371933~exp=1709375533~hmac=b7ac709dff33a203b639a680f94e6f53974d3573ac7ed6e0bfabe272f0a5f65d&w=1060" alt="img" className="w-full h-60 rounded" />
                         </div>
@@ -233,7 +238,7 @@ const Library = () => {
                         </div>
                     </div>
 
-                    <div className="w-full rounded p-2 border-2">
+                    <div className="w-full rounded p-2 border-2" data-aos = "flip-right">
                         <div>
                             <img src="https://img.freepik.com/free-photo/businesman-working-computer_1098-21050.jpg?t=st=1709371933~exp=1709375533~hmac=b7ac709dff33a203b639a680f94e6f53974d3573ac7ed6e0bfabe272f0a5f65d&w=1060" alt="img" className="w-full h-60 rounded" />
                         </div>
