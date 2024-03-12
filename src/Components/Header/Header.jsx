@@ -23,7 +23,7 @@ const Header = () => {
         navigate("/login")
     }
     return (
-        <header className="font-nunito shadow-xl text-[#827A7A] font-semibold  w-full  bg-white p-2 sticky top-0 z-10">
+        <header className="font-nunito shadow-xl text-[#827A7A] font-semibold  w-full  bg-white p-2 sticky top-0 z-10" data-aos = "fade-down">
             <nav className="flex w-full justify-around items-center p-2 " >
                 <div onClick={() => navigate("/")}>
                     <img src="/LOGO.png" alt="" className="w-14 h-14 cursor-pointer" />
