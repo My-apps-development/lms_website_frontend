@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { axiosInstance } from "../../../Utils/AxiosSetup"
-import { successMessage } from "../../../Utils/NotificationManager"
+import { errorMessage, successMessage } from "../../../Utils/NotificationManager"
 
 
 const ThirdPage = () => {
@@ -18,6 +18,7 @@ const ThirdPage = () => {
             const data = await response?.data
             successMessage(data?.message);
         } catch (error) {
+            errorMessage(error?.response?.data?.message)
             console.log("Error posting Language", error.message);
         }
     }

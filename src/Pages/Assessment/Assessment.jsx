@@ -1,10 +1,12 @@
-import { useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
 
 
 const Assessment = () => {
     const navigate = useNavigate()
+    const { state } = useLocation()
+    // console.log(state?.courseId);
     return (
         <div className="font-nunito text-[#827A7A]">
             <Header />
@@ -47,7 +49,7 @@ const Assessment = () => {
 
                 </div>
                 <div className="my-3">
-                    <button className="p-2 bg-[#B32073] text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073]" onClick={()=>navigate("/assessment/quiz")}>Start the Test</button>
+                    <button className="p-2 bg-[#B32073] text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073]" onClick={() => navigate("/assessment/quiz", {state : {courseId : state?.courseId}})}>Start the Test</button>
                 </div>
             </div>
             <Footer />
