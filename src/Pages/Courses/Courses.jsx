@@ -5,6 +5,7 @@ import { axiosInstance } from "../../Utils/AxiosSetup"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Loader from "../../Utils/Loader"
+import { errorMessage } from "../../Utils/NotificationManager"
 
 
 const Courses = () => {
@@ -22,7 +23,8 @@ const Courses = () => {
             setCourseList(data?.courseData);
             setLoader(false)
         } catch (error) {
-            console.log("Error Fetching Courses", error.message);
+            errorMessage(error?.response?.data?.message)
+            // console.log("Error Fetching Courses", error.message);
         }
     }
 

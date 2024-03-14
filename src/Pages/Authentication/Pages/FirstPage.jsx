@@ -64,7 +64,7 @@ const FirstPage = ({ onNext, onCompanyListChange }) => {
         const file = e.target.files[0]
         if (file) {
             const reader = new FileReader()
-            console.log(reader);
+            // console.log(reader);
             reader.onloadend = () => {
                 setFileDisplay(reader.result)
             }
@@ -76,7 +76,7 @@ const FirstPage = ({ onNext, onCompanyListChange }) => {
     }
 
 
-    console.log(otp);
+    // console.log(otp);
 
 
 
@@ -98,7 +98,7 @@ const FirstPage = ({ onNext, onCompanyListChange }) => {
             successMessage(data?.message);
         } catch (error) {
             errorMessage(error?.response?.data?.message)
-            console.log("error posting data", error.message);
+            // console.log("error posting data", error.message);
         }
     }
 
@@ -116,7 +116,7 @@ const FirstPage = ({ onNext, onCompanyListChange }) => {
                 }
             })
             const data = await response?.data
-            console.log(data);
+            // console.log(data);
             setCompanyList(data?.companiesdata)
             localStorage.setItem("user", JSON.stringify(data?.user))
             localStorage.setItem("token", JSON.stringify(data?.accessToken))
@@ -154,7 +154,8 @@ const FirstPage = ({ onNext, onCompanyListChange }) => {
             navigate("/")
 
         } catch (error) {
-            console.log("Error Posting Profile Details", error.message);
+            errorMessage(error?.response?.data?.message)
+            // console.log("Error Posting Profile Details", error.message);
         }
     }
 

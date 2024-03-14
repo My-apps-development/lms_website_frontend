@@ -15,7 +15,7 @@ const SecondPage = ({ onNext, companyList }) => {
     })
 
 
-    console.log(companyList);
+    // console.log(companyList);
 
     const handleChangeProfileImage = (e) => {
         e.preventDefault()
@@ -23,7 +23,7 @@ const SecondPage = ({ onNext, companyList }) => {
         const file = e.target.files[0]
         if (file) {
             const reader = new FileReader()
-            console.log(reader);
+            // console.log(reader);
             reader.onloadend = () => {
                 setFileDisplay(reader.result)
             }
@@ -46,7 +46,7 @@ const SecondPage = ({ onNext, companyList }) => {
     const handleSubmitProfile = async (e) => {
         e.preventDefault()
 
-        console.log(profileInputs);
+        // console.log(profileInputs);
 
 
 
@@ -63,7 +63,7 @@ const SecondPage = ({ onNext, companyList }) => {
             onNext()
         } catch (error) {
             errorMessage(error?.response?.data?.message)
-            console.log("Error posting profile data", error.message);
+            // console.log("Error posting profile data", error.message);
         }
     }
 

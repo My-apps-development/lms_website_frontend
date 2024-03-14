@@ -19,7 +19,7 @@ const ThirdPage = () => {
             successMessage(data?.message);
         } catch (error) {
             errorMessage(error?.response?.data?.message)
-            console.log("Error posting Language", error.message);
+            // console.log("Error posting Language", error.message);
         }
     }
 

@@ -15,7 +15,7 @@ const steps = ['Login Page', 'Complete Profile', 'Language Selection'];
 export default function HorizontalLinearStepper() {
   const navigate = useNavigate()
   const user = JSON.parse(localStorage.getItem("user"))
-  console.log(user);
+  // console.log(user);
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
   const [companyList, setCompanyList] = React.useState([])
@@ -76,7 +76,7 @@ export default function HorizontalLinearStepper() {
     setCompanyList(list)
   }
 
-  console.log(companyList);
+  // console.log(companyList);
 
   return (
     <Box sx={{ width: '100%' }}>
