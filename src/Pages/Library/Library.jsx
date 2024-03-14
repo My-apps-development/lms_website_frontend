@@ -53,7 +53,7 @@ const Library = () => {
                     libraryList?.map((item, index)=> {
                         return (
                             <div key={index} className=" flex border-2 gap-5 my-10 mx-5 bg-white p-5 rounded-lg justify-between items-center shadow-xl" data-aos="flip-left">
-                               <a href={item?.pdfupload} download={item?.pdfupload} target="_blank" rel="noopener noreferrer" className="flex justify-start items-center gap-5  capitalize "> <BsFiletypePdf className="text-red-500"/>{item.title}</a>
+                               <a href={item?.pdfupload} download={item?.pdfupload} target="_blank" rel="noopener noreferrer" className="flex justify-start items-center gap-5 font-semibold capitalize "> <BsFiletypePdf className="text-red-500"/>{item.title}</a>
                                 
                             </div>
                         )
