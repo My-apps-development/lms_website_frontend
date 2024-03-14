@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { axiosInstance } from "../../../Utils/AxiosSetup"
-import { successMessage } from "../../../Utils/NotificationManager"
+import { errorMessage, successMessage } from "../../../Utils/NotificationManager"
 
 
 const SecondPage = ({ onNext, companyList }) => {
@@ -62,6 +62,7 @@ const SecondPage = ({ onNext, companyList }) => {
             successMessage(data.message);
             onNext()
         } catch (error) {
+            errorMessage(error?.response?.data?.message)
             console.log("Error posting profile data", error.message);
         }
     }

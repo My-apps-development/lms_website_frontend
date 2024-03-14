@@ -23,7 +23,7 @@ const Header = () => {
         navigate("/login")
     }
     return (
-        <header className="font-nunito shadow-xl text-[#827A7A] font-semibold  w-full  bg-white p-2 sticky top-0 z-10" data-aos = "fade-down">
+        <header className="font-nunito shadow-xl text-[#827A7A] font-semibold  w-full  bg-white p-2 sticky top-0 z-10" data-aos="fade-down">
             <nav className="flex w-full justify-around items-center p-2 " >
                 <div onClick={() => navigate("/")}>
                     <img src="/LOGO.png" alt="" className="w-14 h-14 cursor-pointer" />
@@ -36,18 +36,24 @@ const Header = () => {
                         </div>
                     </NavLink>
 
+                    <NavLink to="/category">
+                        <div className="p-2">
+                            <p>Videos</p>
+                        </div>
+                    </NavLink>
+
 
                     <NavLink to="/library">
                         <div className="p-2">
                             <p>Library</p>
                         </div>
                     </NavLink>
-
+{/* 
                     <NavLink to="/assessment">
                         <div className="p-2">
                             <p>Assessment</p>
                         </div>
-                    </NavLink>
+                    </NavLink> */}
                 </div>
                 {
                     token ? <div className="flex gap-5">

@@ -3,6 +3,7 @@ import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useEffect } from "react";
+import { axiosInstance } from "../../Utils/AxiosSetup";
 
 
 const Library = () => {
@@ -11,6 +12,21 @@ const Library = () => {
 
     useEffect(()=>{
         window.scrollTo(0,0)
+    },[])
+
+
+    const fetchCourses = async () => {
+        try{
+            const response = await axiosInstance.get("/homepage/fetchcourse")
+            const data = await response?.data
+            console.log(data);
+        } catch(error) {
+            console.log("Error Fetching Courses", error.message);
+        }
+    }
+
+    useEffect(()=>{
+        fetchCourses()
     },[])
     return (
         <div className="font-nunito text-[#827A7A]">

@@ -1,8 +1,10 @@
+import { useNavigate } from "react-router-dom"
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
 
 
 const Dashboard = () => {
+  const navigate = useNavigate()
   return (
     <div>
       <Header />
@@ -11,7 +13,7 @@ const Dashboard = () => {
           <div className="flex justify-center items-start flex-col gap-5 w-[30%] p-2">
             <h1 className="text-4xl text-[#0C0531]">Start Your Learning Journey With Advaya FM</h1>
             <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,</p>
-            <button className="p-2 w-32 rounded-lg  bg-[#B32073] text-white">Explore Course</button>
+            <button className="p-2 w-32 rounded-lg  bg-[#B32073] text-white" onClick={()=>navigate("/category")}>Explore Course</button>
           </div>
           <div>
             <img src="/Login_left_logo.jpg" alt="" className="w-96 h-96 object-cover" />
@@ -53,7 +55,7 @@ const Dashboard = () => {
 
         <div className="flex justify-center items-center p-10 flex-col bg-[#F4F4F4] gap-5">
           <div className="flex flex-col gap-5 p-2 justify-center items-center">
-            <h1 className="text-4xl" >What is Advaya’S <span className="text-[#B32073]">FM naipuNya</span> doing UNIQELY </h1>
+            <h1 className="text-4xl" >What is Advaya’S <span className="text-[#B32073]">FM naipuNya</span> doing UNIQUELY </h1>
             <p>We are initiating India’s Upskilling for India’s  1st Blue-collar workers in the Facilities Management Industry for roles of</p>
             <div className="grid grid-cols-3 w-full justify-center items-center gap-5">
               <h1 className="text-center border-2 p-2 shadow-lg bg-white">Driver</h1>

@@ -14,6 +14,9 @@ import 'react-toastify/dist/ReactToastify.css';
 import Profile from './Pages/Profile/Profile';
 import Register from './Pages/Authentication/Login';
 import ProfileStepper from './Pages/Authentication/ProfileStepper';
+import Category from './Pages/Courses/Category';
+import Courses from './Pages/Courses/Courses';
+import ProtectedWrapper from './Utils/ProtectedWrapper';
 
 function App() {
 
@@ -35,11 +38,13 @@ function App() {
         <Route path='/register' element={<Login />}/>
         <Route path='/login' element={<Register />}/>
         <Route path='/register/profile' element={<ProfileStepper />}/>
-        <Route path='/library' element={<Library />}/>
-        <Route path='/assessment' element={<Assessment />}/>
-        <Route path='/assessment/quiz' element={<StartQuiz />}/>
-        <Route path='/video/view' element={<VideoView />}/>
-        <Route path='/profile' element={<Profile />}/>
+        <Route path='/category' element={<ProtectedWrapper><Category /></ProtectedWrapper>}/>
+        <Route path='/category/courses' element={<ProtectedWrapper><Courses /></ProtectedWrapper>}/>
+        <Route path='/library' element={<ProtectedWrapper><Library /></ProtectedWrapper>}/>
+        <Route path='/assessment' element={<ProtectedWrapper><Assessment /></ProtectedWrapper>}/>
+        <Route path='/assessment/quiz' element={<ProtectedWrapper><StartQuiz /></ProtectedWrapper>}/>
+        <Route path='/video/view/:id' element={<ProtectedWrapper><VideoView /></ProtectedWrapper>}/>
+        <Route path='/profile' element={<ProtectedWrapper><Profile /></ProtectedWrapper>}/>
 
       </Routes>
       </BrowserRouter>
