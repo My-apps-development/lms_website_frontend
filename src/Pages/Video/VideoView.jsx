@@ -5,6 +5,7 @@ import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { axiosInstance } from "../../Utils/AxiosSetup"
 import Loader from "../../Utils/Loader"
+import { errorMessage } from "../../Utils/NotificationManager"
 
 
 const VideoView = () => {
@@ -27,7 +28,9 @@ const VideoView = () => {
             setChapterList(data?.chapters);
             setLoader(false)
         } catch (error) {
-            console.log("Error Fetching Chapters", error.message);
+            setLoader(false)
+            errorMessage(error?.response?.data?.message)
+            // console.log("Error Fetching Chapters", error.message);
         }
     }
 
@@ -48,7 +51,7 @@ const VideoView = () => {
         });
     };
 
-    console.log(chapterList);
+    // console.log(chapterList);
 
 
 

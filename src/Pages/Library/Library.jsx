@@ -5,6 +5,7 @@ import Header from "../../Components/Header/Header"
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../../Utils/AxiosSetup";
 import { BsFiletypePdf } from "react-icons/bs";
+import { errorMessage } from "../../Utils/NotificationManager";
 
 
 const Library = () => {
@@ -24,11 +25,12 @@ const Library = () => {
             const data = await response?.data
             setLibraryList(data?.data);
         } catch(error) {
-            console.log("Error Fetching Courses", error.message);
+            errorMessage(error?.response?.data?.message)
+            // console.log("Error Fetching Courses", error.message);
         }
     }
 
-    console.log(libraryList);
+    // console.log(libraryList);
 
     useEffect(()=>{
         fetchLibrary()

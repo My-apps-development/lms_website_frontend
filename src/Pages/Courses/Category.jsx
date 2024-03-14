@@ -4,7 +4,7 @@ import Header from "../../Components/Header/Header"
 import { axiosInstance } from "../../Utils/AxiosSetup"
 import { useEffect, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { successMessage } from "../../Utils/NotificationManager"
+import { errorMessage, successMessage } from "../../Utils/NotificationManager"
 import Loader from "../../Utils/Loader"
 
 
@@ -27,7 +27,8 @@ const Category = () => {
             setCategoryList(data?.data);
             setLoader(false)
         } catch (error) {
-            console.log("error fetching categories", error.message);
+            errorMessage(error?.response?.data?.message)
+            // console.log("error fetching categories", error.message);
         }
     }
 
@@ -39,12 +40,12 @@ const Category = () => {
 
     
 
-    console.log(filterWithRole);
+    // console.log(filterWithRole);
     
 
     const postCategory = async (_id) => {
 
-        console.log(_id);
+        // console.log(_id);
 
         const formData = new FormData()
         formData.append("categoryid", _id)
@@ -57,7 +58,8 @@ const Category = () => {
             setLoader(false)
 
         } catch (error) {
-            console.log("Error Posting Category ", error.message);
+            errorMessage(error?.response?.data?.message)
+            // console.log("Error Posting Category ", error.message);
         }
     }
 

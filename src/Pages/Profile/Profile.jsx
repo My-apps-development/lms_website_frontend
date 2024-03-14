@@ -45,7 +45,7 @@ const Profile = () => {
 
     }
 
-    console.log(fileRef);
+    // console.log(fileRef);
 
     const handleChangeProfilePhoto = (e) => {
         e.preventDefault()
@@ -53,7 +53,7 @@ const Profile = () => {
         const file = e.target.files[0]
         if (file) {
             const reader = new FileReader()
-            console.log(reader);
+            // console.log(reader);
             reader.onloadend = () => {
                 setDisplayProfilePicture(reader.result)
             }
@@ -70,7 +70,7 @@ const Profile = () => {
         const file = e.target.files[0]
         if (file) {
             const reader = new FileReader()
-            console.log(reader);
+            // console.log(reader);
             reader.onloadend = () => {
                 setFileDisplay(reader.result)
             }
@@ -108,7 +108,7 @@ const Profile = () => {
         } catch (error) {
             setLoader(false)
             errorMessage(error?.response?.data?.message)
-            console.log("Error Posting Profile Details", error.message);
+            // console.log("Error Posting Profile Details", error.message);
         }
     }
 
@@ -126,7 +126,8 @@ const Profile = () => {
             setLoader(false)
         } catch (error) {
             setLoader(false)
-            console.log("Error Fetching Profile", error.message);
+            errorMessage(error?.response?.data?.message)
+            // console.log("Error Fetching Profile", error.message);
         }
     }
 
