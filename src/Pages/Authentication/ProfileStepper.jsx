@@ -20,6 +20,8 @@ export default function HorizontalLinearStepper() {
   const [skipped, setSkipped] = React.useState(new Set());
   const [companyList, setCompanyList] = React.useState([])
 
+  const [token, setToken] = React.useState("")
+
   const isStepOptional = (step) => {
     return step === 1;
   };
@@ -111,9 +113,9 @@ export default function HorizontalLinearStepper() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          {activeStep === 0 && <FirstPage onNext={handleNext} onCompanyListChange={handleCompanyListChange} />}
-          {activeStep === 1 && <SecondPage onNext={handleNext} companyList={companyList} />}
-          {activeStep === 2 && <ThirdPage />}
+          {activeStep === 0 && <FirstPage token= {setToken} onNext={handleNext} onCompanyListChange={handleCompanyListChange} />}
+          {activeStep === 1 && <SecondPage token={token} onNext={handleNext} companyList={companyList} />}
+          {activeStep === 2 && <ThirdPage token={token}/>}
           {/* <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography> */}
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Button

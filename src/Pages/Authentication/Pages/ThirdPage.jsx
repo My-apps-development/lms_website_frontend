@@ -3,7 +3,7 @@ import { axiosInstance } from "../../../Utils/AxiosSetup"
 import { errorMessage, successMessage } from "../../../Utils/NotificationManager"
 
 
-const ThirdPage = () => {
+const ThirdPage = ({ token }) => {
 
     const [language, setLanguage] = useState("")
 
@@ -14,7 +14,7 @@ const ThirdPage = () => {
         formData.append("language", language)
 
         try {
-            const response = await axiosInstance.post("/userlanguage", formData, { headers: { "Content-Type": "application/json" } })
+            const response = await axiosInstance.post("/userlanguage", formData, { headers: { "Content-Type": "application/json", Authorization: token } })
             const data = await response?.data
             successMessage(data?.message);
         } catch (error) {

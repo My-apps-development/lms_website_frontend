@@ -7,7 +7,7 @@ import { axiosInstance } from "../../../Utils/AxiosSetup";
 import { errorMessage, successMessage } from "../../../Utils/NotificationManager";
 
 
-const FirstPage = ({ onNext, onCompanyListChange }) => {
+const FirstPage = ({ onNext, onCompanyListChange, token }) => {
     const navigate = useNavigate()
 
     const [activeButton, setActiveButton] = useState(null)
@@ -16,6 +16,8 @@ const FirstPage = ({ onNext, onCompanyListChange }) => {
     const [companyList, setCompanyList] = useState([])
     const [UploadLicense, setUploadLicense] = useState(null)
     const [fileDisplay, setFileDisplay] = useState(null)
+
+    
 
     const [profileInputs, setProfileInputs] = useState({
         fullname: "",
@@ -118,21 +120,26 @@ const FirstPage = ({ onNext, onCompanyListChange }) => {
             const data = await response?.data
             // console.log(data);
             setCompanyList(data?.companiesdata)
+            token(data?.accessToken)
             localStorage.setItem("user", JSON.stringify(data?.user))
             localStorage.setItem("token", JSON.stringify(data?.accessToken))
 
             onCompanyListChange(data?.companiesdata)
+            
             onNext()
 
             // setIsModalOpen(true)
             // console.log(data);
             successMessage("Otp Verify Success")
+
+          
             // navigate("/")
         } catch (error) {
 
             console.log("error posting otp", error.message);
         }
     }
+
 
     const UploadProfile = async (e) => {
         e.preventDefault()

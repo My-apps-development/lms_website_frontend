@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
-import Quiz from "./quiz.json"
+// import Quiz from "./quiz.json"
 import { axiosInstance } from "../../Utils/AxiosSetup"
 import { useLocation } from "react-router-dom"
 import { errorMessage, successMessage } from "../../Utils/NotificationManager"
@@ -18,13 +18,15 @@ const StartQuiz = () => {
 
     const [questionList, setQuestionList] = useState([])
 
-    const [answer, setAnswer] = useState({})
+    const [answer, setAnswer] = useState([])
 
     const [correctAnswer, setCorrectAnswer] = useState(0)
 
     const [wrongAnswer, setWrongAnswer] = useState(0)
 
     const [loader, setLoader] = useState(false)
+
+    const [totalMark, setTotalMark] = useState(0)
 
     const previousQuestion = () => {
 
@@ -61,7 +63,7 @@ const StartQuiz = () => {
 
         setAnswer((prevAnswer) => ({
             ...prevAnswer,
-            [currentQuestion]: selectedOption
+            [currentQuizNumber._id]: selectedOption
         }))
 
     }
@@ -69,27 +71,33 @@ const StartQuiz = () => {
     const calculateScore = () => {
         let correctAnswer = 0
         let wrongAnswer = 0
-        Quiz?.Quiz?.forEach((question, index) => {
-            console.log(answer[index]);
-            if (answer[index] === question?.correct_answer) {
+        let totalMarks = 0
+        questionList?.forEach((question) => {
+      
+           
+            if (answer[question?._id] === question?.correct_option) {
                 correctAnswer++
+                totalMarks += question.marks;
+               
             } else {
                 wrongAnswer++
             }
         })
         setCorrectAnswer(correctAnswer)
         setWrongAnswer(wrongAnswer);
+        setTotalMark(totalMarks)
     }
 
-
-    // console.log(correctAnswer, "correct answer");
-    // console.log(wrongAnswer, "wrong answer");
+    console.log(answer, "answers");
+    console.log(totalMark, "totalmarks");
+    console.log(correctAnswer, "correct answer");
+    console.log(wrongAnswer, "wrong answer");
 
     const percentage = ((correctAnswer / questionList.length) * 100).toFixed(2) + "%"
-    // console.log(percentage);
+    console.log(percentage);
 
 
-    // console.log(questionList);
+    console.log(questionList);
 
     const postQuiz = async () => {
 

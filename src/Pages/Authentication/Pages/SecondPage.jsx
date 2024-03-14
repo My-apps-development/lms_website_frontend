@@ -3,7 +3,7 @@ import { axiosInstance } from "../../../Utils/AxiosSetup"
 import { errorMessage, successMessage } from "../../../Utils/NotificationManager"
 
 
-const SecondPage = ({ onNext, companyList }) => {
+const SecondPage = ({ onNext, companyList, token }) => {
 
     const [UploadLicense, setUploadLicense] = useState(null)
     const [fileDisplay, setFileDisplay] = useState(null)
@@ -15,7 +15,7 @@ const SecondPage = ({ onNext, companyList }) => {
     })
 
 
-    // console.log(companyList);
+    console.log(token);
 
     const handleChangeProfileImage = (e) => {
         e.preventDefault()
@@ -57,7 +57,7 @@ const SecondPage = ({ onNext, companyList }) => {
         postProfileData.append("upload_license", UploadLicense)
 
         try {
-            const response = await axiosInstance.post("/userDetail", postProfileData, { headers: { "Content-Type": "multipart/form-data" } })
+            const response = await axiosInstance.post("/userDetail", postProfileData, { headers: { "Content-Type": "multipart/form-data", Authorization: token } })
             const data = await response?.data
             successMessage(data.message);
             onNext()
