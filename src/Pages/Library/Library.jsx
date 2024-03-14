@@ -1,32 +1,37 @@
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
-import { FaArrowRightLong } from "react-icons/fa6";
-import { useEffect } from "react";
+// import { FaArrowRightLong } from "react-icons/fa6";
+import { useEffect, useState } from "react";
 import { axiosInstance } from "../../Utils/AxiosSetup";
+import { BsFiletypePdf } from "react-icons/bs";
 
 
 const Library = () => {
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
+
+    const [libraryList, setLibraryList] = useState([])
 
     useEffect(()=>{
         window.scrollTo(0,0)
     },[])
 
 
-    const fetchCourses = async () => {
+    const fetchLibrary = async () => {
         try{
-            const response = await axiosInstance.get("/homepage/fetchcourse")
+            const response = await axiosInstance.get("/library/fetchpdf")
             const data = await response?.data
-            console.log(data);
+            setLibraryList(data?.data);
         } catch(error) {
             console.log("Error Fetching Courses", error.message);
         }
     }
 
+    console.log(libraryList);
+
     useEffect(()=>{
-        fetchCourses()
+        fetchLibrary()
     },[])
     return (
         <div className="font-nunito text-[#827A7A]">
@@ -41,8 +46,21 @@ const Library = () => {
 
             </div>
 
+            <div className="grid grid-cols-3 gap-2 mt-10 font-semibold">
+                {
+                    libraryList?.map((item, index)=> {
+                        return (
+                            <div key={index} className=" flex border-2 gap-5 my-10 mx-5 bg-white p-5 rounded-lg justify-between items-center shadow-xl" data-aos="flip-left">
+                               <a href={item?.pdfupload} download={item?.pdfupload} target="_blank" rel="noopener noreferrer" className="flex justify-start items-center gap-5  capitalize "> <BsFiletypePdf className="text-red-500"/>{item.title}</a>
+                                
+                            </div>
+                        )
+                    })
+                }
+            </div>
 
-            <div className="p-2 mt-5 w-[90%] mx-20">
+
+            {/* <div className="p-2 mt-5 w-[90%] mx-20">
                 <div className="mt-5 p-3">
                     <h1 className="text-4xl font-bold">Recommended For You</h1>
                 </div>
@@ -156,9 +174,9 @@ const Library = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
 
-            <div className="p-2 mt-5 w-[90%] mx-20" >
+            {/* <div className="p-2 mt-5 w-[90%] mx-20" >
                 <div className="mt-5 p-3">
                     <h1 className="text-4xl font-bold">Recently Viewed</h1>
                 </div>
@@ -274,7 +292,7 @@ const Library = () => {
                 </div>
 
 
-            </div>
+            </div> */}
 
 
             <div className="mt-5">
