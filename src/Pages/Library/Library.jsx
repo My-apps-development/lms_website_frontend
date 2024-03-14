@@ -48,7 +48,7 @@ const Library = () => {
 
             </div>
 
-            <div className="grid grid-cols-3 gap-2 mt-10 font-semibold">
+            <div className="grid grid-cols-4 gap-2 mt-10 font-semibold ml-10">
                 {
                     libraryList?.map((item, index)=> {
                         return (
