@@ -20,25 +20,28 @@ const VideoView = () => {
     const [loader, setLoader] = useState(false)
     // console.log(state?.courseId);
 
-    const fetchChapters = async () => {
-        try {
-            setLoader(true)
-            const response = await axiosInstance.get(`/homepage/chapters?courseId=${state?.courseId}`)
-            const data = await response?.data
-            setChapterList(data?.chapters);
-            setLoader(false)
-        } catch (error) {
-            setLoader(false)
-            errorMessage(error?.response?.data?.message)
-            // console.log("Error Fetching Chapters", error.message);
-        }
-    }
+   
+
+    // const fetchChapters = async () => {
+    //     try {
+    //         setLoader(true)
+    //         const response = await axiosInstance.get(`/homepage/chapters?courseId=${state?.courseId}`)
+    //         const data = await response?.data
+    //         setChapterList(data?.chapters);
+    //         setLoader(false)
+    //     } catch (error) {
+    //         setLoader(false)
+    //         errorMessage(error?.response?.data?.message)
+    //         // console.log("Error Fetching Chapters", error.message);
+    //     }
+    // }
 
     const NextChapter = () => {
         if (chapterList.length > 0) {
             setCurrentChapter((current) => (current + 1) % chapterList.length);
         }
     }
+
 
 
     const PreviousChapter = () => {
@@ -51,7 +54,10 @@ const VideoView = () => {
         });
     };
 
-    console.log(chapterList[currentChapter]);
+    // console.log(chapterList[currentChapter]);
+
+
+    console.log(state);
 
 
 
@@ -60,7 +66,8 @@ const VideoView = () => {
 
     }, [])
     useEffect(() => {
-        fetchChapters()
+        setChapterList(state?.chapters)
+        // fetchChapters()
     }, [])
     return (
         <div className="font-nunito font-semibold text-[#827A7A]">

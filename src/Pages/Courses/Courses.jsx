@@ -28,6 +28,8 @@ const Courses = () => {
         }
     }
 
+    // console.log(courseList);
+
 
 
 
@@ -69,7 +71,7 @@ const Courses = () => {
                                                     {/* <p>{item?.course?.description}</p> */}
                                                     <div className="flex justify-between items-center">
                                                         {/* <p className="invisible">412 students</p> */}
-                                                        <p className="px-5 py-2 text-white bg-orange-600 cursor-pointer" onClick={() => navigate(`/video/view/${item?.course?._id}`, { state: { courseId: item?.course?._id } })}><FaArrowRightLong /></p>
+                                                        <p className="px-5 py-2 text-white bg-orange-600 cursor-pointer" onClick={() => navigate(`/video/view/${item?.course?._id}`, { state: { courseId: item?.course?._id, chapters: item?.chapters } })}><FaArrowRightLong /></p>
                                                     </div>
                                                 </div>
                                             </div>
