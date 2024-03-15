@@ -3,7 +3,7 @@ import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
 // import Quiz from "./quiz.json"
 import { axiosInstance } from "../../Utils/AxiosSetup"
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { errorMessage, successMessage } from "../../Utils/NotificationManager"
 import Loader from "../../Utils/Loader"
 
@@ -27,6 +27,8 @@ const StartQuiz = () => {
     const [loader, setLoader] = useState(false)
 
     const [totalMark, setTotalMark] = useState(0)
+
+    const navigate = useNavigate()
 
     const previousQuestion = () => {
 
@@ -73,12 +75,12 @@ const StartQuiz = () => {
         let wrongAnswer = 0
         let totalMarks = 0
         questionList?.forEach((question) => {
-      
-           
+
+
             if (answer[question?._id] === question?.correct_option) {
                 correctAnswer++
                 totalMarks += question.marks;
-               
+
             } else {
                 wrongAnswer++
             }
@@ -125,6 +127,9 @@ const StartQuiz = () => {
         if (currentQuestion === questionList.length - 1) {
             calculateScore();
             postQuiz(); // Call postQuiz function when it's the last question
+            console.log("State being passed to result route:", { finalScore: percentage, correctAnswer: correctAnswer, totalQuestions: questionList?.length });
+            navigate("/assessment/quiz/result", { state: { finalScore: percentage, correctAnswer: correctAnswer, totalQuestions: questionList?.length } })
+
         } else {
             nextQuestion(); // Call nextQuestion function for other questions
         }
