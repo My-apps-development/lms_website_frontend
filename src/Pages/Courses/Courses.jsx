@@ -56,7 +56,7 @@ const Courses = () => {
                                     return (
                                         <div className=" rounded p-2 border-2 font-semibold" data-aos="flip-left" key={index}>
                                             <div>
-                                                <video controls width="100%" className="h-60" >
+                                                <video controls width="100%" className="h-60" controlsList="nodownload">
                                                     <source src={item?.course?.video_link} type="video/mp4" />
                                                 </video>
                                             </div>
