@@ -9,6 +9,7 @@ import FirstPage from './Pages/FirstPage';
 import SecondPage from "./Pages/SecondPage"
 import ThirdPage from './Pages/ThirdPage';
 import { useNavigate } from 'react-router-dom';
+import { infoMessage } from '../../Utils/NotificationManager';
 
 const steps = ['Login Page', 'Complete Profile', 'Language Selection'];
 
@@ -43,7 +44,7 @@ export default function HorizontalLinearStepper() {
     if (activeStep === steps.length - 1) {
 
       if (user?.approve == false) {
-        return alert("Approval is pending, wait until our team get back to you...!")
+        return infoMessage("Approval is pending, wait until our team get back to you...!")
       } else {
         navigate("/")
       }

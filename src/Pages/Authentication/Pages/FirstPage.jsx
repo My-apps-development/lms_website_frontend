@@ -86,6 +86,17 @@ const FirstPage = ({ onNext, onCompanyListChange, token }) => {
 
     const AddPhoneNumber = async (e) => {
         e.preventDefault()
+
+        if(activeButton === null) {
+            errorMessage("Role is Required")
+        }
+
+        if(!phone){
+            errorMessage("Phone is Required")
+            return
+        }
+
+        
         const formData = new FormData()
         formData.append("role", activeButton?.toLowerCase()?.trim())
         formData.append("phone", phone)
@@ -106,6 +117,16 @@ const FirstPage = ({ onNext, onCompanyListChange, token }) => {
 
     const SendOtp = async (e) => {
         e.preventDefault()
+
+        if(!phone){
+            errorMessage("Phone is Required")
+            return
+        }
+
+        if(!otp){
+            errorMessage("Otp is Required")
+            return
+        }
 
         const postOtp = new FormData()
         postOtp.append("otp", otp)
@@ -206,7 +227,7 @@ const FirstPage = ({ onNext, onCompanyListChange, token }) => {
                     </div>
                     <div className="w-[70%] p-2 flex gap-2">
                         <input type="text" name="phone" id="phone" className="p-2 w-[70%] border-2 rounded-lg border-gray-300 focus:outline-[#B32073] focus:outline-1 " placeholder="Enter Mobile Number" onChange={handleChange} />
-                        <button className="w-[30%] p-2 border-2 rounded-lg text-[#B32073] border-[#B32073]" onClick={AddPhoneNumber}>Send Code</button>
+                        <button className="w-[30%] p-2 border-2 rounded-lg text-[#B32073] border-[#B32073] hover:bg-[#B32073] hover:text-white" onClick={AddPhoneNumber}>Send Code</button>
                     </div>
                     <div className="w-[70%] flex flex-col gap-4 p-2">
                         <h1 className="w-full">Verification Code</h1>

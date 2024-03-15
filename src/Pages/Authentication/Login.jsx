@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaArrowRightLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { axiosInstance } from "../../Utils/AxiosSetup";
-import { errorMessage, successMessage } from "../../Utils/NotificationManager";
+import { errorMessage, infoMessage, successMessage } from "../../Utils/NotificationManager";
 import { Box, Modal } from "@mui/material";
 
 
@@ -83,6 +83,18 @@ const Register = () => {
 
     const AddPhoneNumber = async (e) => {
         e.preventDefault()
+
+        if (activeButton === null) {
+            errorMessage("Role is Required")
+            return
+        }
+
+        if (!phone) {
+            errorMessage("Phone Number is Required")
+            return
+        }
+
+
         const formData = new FormData()
         formData.append("role", activeButton?.toLowerCase()?.trim())
         formData.append("phone", phone)
@@ -104,6 +116,16 @@ const Register = () => {
     const SendOtp = async (e) => {
         e.preventDefault()
 
+        if (!phone) {
+            errorMessage("Phone is Required")
+            return
+        }
+
+        if (!otp) {
+            errorMessage("Otp is Required")
+            return
+        }
+
         const postOtp = new FormData()
         postOtp.append("otp", otp)
         postOtp.append("phone", phone)
@@ -117,13 +139,20 @@ const Register = () => {
             const data = await response?.data
             // console.log(data);
             setCompanyList(data?.companiesdata)
-            localStorage.setItem("user", JSON.stringify(data?.user))
-            localStorage.setItem("token", JSON.stringify(data?.accessToken))
+           
 
             // setIsModalOpen(true)
             // console.log(data);
-            successMessage("Login success")
-            navigate("/")
+            if (!data?.user?.language) {
+                infoMessage("You have not registered properly, Please register again")
+                return
+            } else {
+                localStorage.setItem("user", JSON.stringify(data?.user))
+                localStorage.setItem("token", JSON.stringify(data?.accessToken))
+                successMessage("Login success")
+                navigate("/")
+            }
+
         } catch (error) {
             errorMessage(error?.response?.data?.message)
 
@@ -157,9 +186,9 @@ const Register = () => {
     }
 
     const handleNavigateLogin = (e) => {
-         e.preventDefault()
+        e.preventDefault()
 
-         navigate("/register")
+        navigate("/register")
     }
 
 
@@ -196,7 +225,7 @@ const Register = () => {
                     </div>
                     <div className="w-[70%] p-2 flex gap-2">
                         <input type="text" name="phone" id="phone" className="p-2 w-[70%] border-2 rounded-lg border-gray-300 focus:outline-[#B32073] focus:outline-1 " placeholder="Enter Mobile Number" onChange={handleChange} />
-                        <button className="w-[30%] p-2 border-2 rounded-lg text-[#B32073] border-[#B32073]" onClick={AddPhoneNumber}>Send Code</button>
+                        <button className="w-[30%] p-2 border-2 rounded-lg text-[#B32073] border-[#B32073] hover:bg-[#B32073] hover:text-white" onClick={AddPhoneNumber}>Send Code</button>
                     </div>
                     <div className="w-[70%] flex flex-col gap-4 p-2">
                         <h1 className="w-full">Verification Code</h1>
@@ -206,7 +235,7 @@ const Register = () => {
                         <button className="p-2 w-full rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300" onClick={SendOtp}>Login <FaArrowRightLong className="scale-95 duration-300" /> </button>
                     </div>
                     <div className="">
-                      
+
                         <p className="uppercase text-red-700 cursor-pointer" onClick={handleNavigateLogin}>Don't have an account Register here</p>
                     </div>
                 </div>

@@ -48,6 +48,26 @@ const SecondPage = ({ onNext, companyList, token }) => {
 
         // console.log(profileInputs);
 
+        if(!profileInputs?.fullname){
+            errorMessage("Fullname is Required")
+            return
+        }
+
+        if(!profileInputs?.license_num){
+            errorMessage("License Number is Required")
+            return
+        }
+
+        if(UploadLicense === null){
+            errorMessage("Upload License is Required")
+            return
+        }
+
+        if(!profileInputs?.companyid){
+            errorMessage("Company is Required")
+            return
+        }
+
 
 
         const postProfileData = new FormData()

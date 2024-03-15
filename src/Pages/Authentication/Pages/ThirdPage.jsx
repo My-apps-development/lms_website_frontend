@@ -10,6 +10,11 @@ const ThirdPage = ({ token }) => {
     const postLanguage = async (e) => {
         e.preventDefault()
 
+        if(!language){
+            errorMessage("Language is Required")
+            return
+        }
+
         const formData = new FormData()
         formData.append("language", language)
 
