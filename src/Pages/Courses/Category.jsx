@@ -17,7 +17,7 @@ const Category = () => {
     const [loader, setLoader] = useState(false)
 
     const user = JSON.parse(localStorage.getItem("user"))
- 
+
 
     const fetchCategories = async () => {
         try {
@@ -33,15 +33,15 @@ const Category = () => {
     }
 
     // console.log(user);
-   
- 
 
-    const filterWithRole = categoryList.filter((item)=> item?.role.toLowerCase()?.replace(/\s+/g, '') === user?.role.toLowerCase()?.replace(/\s+/g, ''))
 
-    
+
+    const filterWithRole = categoryList.filter((item) => item?.role.toLowerCase()?.replace(/\s+/g, '') === user?.role.toLowerCase()?.replace(/\s+/g, ''))
+
+
 
     // console.log(filterWithRole);
-    
+
 
     const postCategory = async (_id) => {
 
@@ -80,31 +80,37 @@ const Category = () => {
                 loader ? <Loader /> :
 
 
-                    <div className="p-2 grid grid-cols-3 gap-5 m-10  font-semibold">
+                    <div className="p-2">
 
-                        {
-                            filterWithRole?.map((item, index) => {
-                                return (
-                                    <div className="w-full rounded p-2 border-2 hover:scale-95 hover:duration-300" data-aos="flip-right" key={index}>
-                                        <div>
-                                            <img src={item?.upload_thumbnail} alt="img" className="w-full h-80 rounded object-cover" />
-                                        </div>
-                                        <div>
-                                            <div className="p-2 flex justify-between items-center">
-                                                <h1 className=" text-xl">{item?.categories}</h1>
-                                                <div className="flex justify-between items-center">
-                                                    {/* <p>Role : {item?.role}</p> */}
-                                                    <p className="px-5 py-2 text-white bg-orange-600 cursor-pointer" onClick={() => {
-                                                        postCategory(item?._id)
-                                                        navigate("/category/courses")
-                                                    }}><FaArrowRightLong /></p>
+                        <div className="text-2xl font-semibold m-10 p-2">
+                            <h1>Categories</h1>
+                        </div>
+
+                        <div className="p-2 grid grid-cols-4 gap-5 m-10  font-semibold">
+                            {
+                                filterWithRole?.map((item, index) => {
+                                    return (
+                                        <div className="w-full rounded p-2 border-2 hover:scale-95 hover:duration-300" data-aos="flip-right" key={index}>
+                                            <div>
+                                                <img src={item?.upload_thumbnail} alt="img" className="w-full h-80 rounded object-cover" />
+                                            </div>
+                                            <div>
+                                                <div className="p-2 flex justify-between items-center">
+                                                    <h1 className=" text-xl">{item?.categories}</h1>
+                                                    <div className="flex justify-between items-center">
+                                                        {/* <p>Role : {item?.role}</p> */}
+                                                        <p className="px-5 py-2 text-white bg-orange-600 cursor-pointer" onClick={() => {
+                                                            postCategory(item?._id)
+                                                            navigate("/category/courses")
+                                                        }}><FaArrowRightLong /></p>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                )
-                            })
-                        }
+                                    )
+                                })
+                            }
+                        </div>
                     </div>
             }
             <Footer />

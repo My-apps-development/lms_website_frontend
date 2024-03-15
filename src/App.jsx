@@ -18,6 +18,7 @@ import Category from './Pages/Courses/Category';
 import Courses from './Pages/Courses/Courses';
 import ProtectedWrapper from './Utils/ProtectedWrapper';
 import NotFound from './Pages/NotFound/NotFound';
+import Result from './Pages/Assessment/Result';
 // import Protection from './Pages/ScreenRocordProtection.jsx/Protection';
 
 function App() {
@@ -36,6 +37,17 @@ function App() {
     }
 
     document.addEventListener("contextmenu", preventDefault)
+
+    document.addEventListener("keyup", (e) => {
+      if (e.key === "PrintScreen" || e.key === "Snapshot" || e.key === "PrtScn") {
+      
+        preventDefault(e);
+        alert("screen shot disbaled")
+   
+      }
+    });
+
+
 
     // const blockKeys = (e) => {
     //   if ((e.ctrlKey && e.key === 'c') || (e.ctrlKey && e.key === 'u')) {
@@ -110,14 +122,14 @@ function App() {
     // };
 
   }, [])
-  
+
 
 
   return (
     <div>
       <BrowserRouter>
         <ToastContainer />
-     
+
         <Routes>
           <Route path='/' element={<Dashboard />} />
           <Route path='/register' element={<Login />} />
@@ -130,6 +142,7 @@ function App() {
           <Route path='/assessment/quiz' element={<ProtectedWrapper><StartQuiz /></ProtectedWrapper>} />
           <Route path='/video/view/:id' element={<ProtectedWrapper><VideoView /></ProtectedWrapper>} />
           <Route path='/profile' element={<ProtectedWrapper><Profile /></ProtectedWrapper>} />
+          <Route path='/assessment/quiz/result' element={<ProtectedWrapper><Result /></ProtectedWrapper>} />
           <Route path='*' element={<NotFound />} />
 
         </Routes>
