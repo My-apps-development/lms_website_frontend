@@ -62,7 +62,7 @@ const Courses = () => {
                                             </div>
                                             <div>
                                                 <div className="text-sm p-2 border-b-2">
-                                                    <p>{item?.chapters?.length} Chapters</p>
+                                                    <p>{item?.chapters?.length} Chapters </p>
                                                 </div>
                                                 <div className="p-2 flex justify-between items-center">
                                                     <h1 className="font-bold text-2xl capitalize">{item?.course?.title}</h1>
