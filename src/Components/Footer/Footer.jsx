@@ -5,10 +5,10 @@ import { FaTwitter } from "react-icons/fa";
 const Footer = () => {
     return (
         <div className="flex justify-center items-center w-full flex-col gap-5 font-semibold font-nunito text-white bg-[#B32073] h-96">
-            <div className="flex justify-around items-center gap-5 w-full">
+            <div className="flex justify-around items-start gap-5 w-full">
                 <div className="flex flex-col justify-center items-start gap-2">
                     <div>
-                        <img src="/LOGO.png" alt="logo" className="w-14 h-14 bg-white" />
+                        <img src="/LOGO.png" alt="logo" className="w-32 h-32 bg-white rounded-full" />
                     </div>
                     <div>
                         <p>Follow on social services</p>
@@ -50,7 +50,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="w-full flex justify-center items-center gap-2 ">
-                <p className="border-t-2 w-[70%] text-center p-2">copy right 2024 @ Advaya FM</p>
+                <p className="border-t-2 w-[70%] text-center p-2" data-aos="fade-up">copy right 2024 @ Advaya FM</p>
             </div>
         </div>
     )
