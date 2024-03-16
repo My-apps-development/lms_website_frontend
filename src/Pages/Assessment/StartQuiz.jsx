@@ -145,27 +145,27 @@ const StartQuiz = () => {
             <Header />
             {
                 loader ? <Loader /> : <div className="flex justify-center items-center flex-col w-full font-semibold">
-                    <div className="w-full text-center text-2xl">
+                    <div className="w-full text-center text-2xl max-sm:p-5">
                         <h1>Questions {currentQuestion + 1}/{questionList.length}</h1>
                     </div>
-                    <div className="w-full">
+                    <div className="w-full max-sm:text-xs">
                         <div className="bg-[#B32073] p-2">
-                            <div className="flex gap-5 p-10  text-2xl text-white ml-32">
-                                <div className="w-10 h-10 rounded-full bg-white flex justify-center items-center">
-                                    <p className="text-black">{currentQuestion + 1}</p>
+                            <div className="flex gap-5 p-10  text-2xl text-white ml-32 max-sm:m-0">
+                                <div className=" flex justify-center items-center max-sm:hidden">
+                                    <p className="text-black w-10 h-10 rounded-full bg-white text-center">{currentQuestion + 1}</p>
                                 </div>
-                                <div className="w-full flex flex-wrap">
+                                <div className="w-full flex flex-wrap max-sm:text-xs">
                                     <h4>{currentQuizNumber?.question}</h4>
                                 </div>
                             </div>
                         </div>
                         <div className="w-full flex justify-center items-center my-10 p-2 flex-col">
-                            <div className="grid grid-cols-2 w-[70%] p-2 gap-5 place-items-center">
-                                <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer" onClick={() => handleAnswer(currentQuizNumber?.option_A)}>A. {currentQuizNumber?.option_A}</p>
-                                <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer" onClick={() => handleAnswer(currentQuizNumber?.option_B)}>B. {currentQuizNumber?.option_B}</p>
-                                <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer" onClick={() => handleAnswer(currentQuizNumber?.option_C)}>C. {currentQuizNumber?.option_C}</p>
+                            <div className="grid grid-cols-2 w-[70%] p-2 gap-5 place-items-center max-sm:grid-cols-1 ">
+                                <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_A)}>A. {currentQuizNumber?.option_A}</p>
+                                <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_B)}>B. {currentQuizNumber?.option_B}</p>
+                                <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_C)}>C. {currentQuizNumber?.option_C}</p>
                                 {
-                                    currentQuizNumber?.option_D == " "?.replace(/\s+/g, '') ? <p className="bg-gray-600 w-96 py-2 px-5 text-center cursor-pointer text-white" onClick={() => handleAnswer(currentQuizNumber?.option_D)}>D. {currentQuizNumber?.option_D}</p> : null
+                                    currentQuizNumber?.option_D == " "?.replace(/\s+/g, '') ? <p className="bg-gray-600 w-96 py-2 px-5 text-center cursor-pointer text-white max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_D)}>D. {currentQuizNumber?.option_D}</p> : null
                                 }
                             </div>
 

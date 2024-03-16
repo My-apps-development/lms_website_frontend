@@ -43,7 +43,7 @@ const Courses = () => {
                 loader ? <Loader /> :
 
                     <div className="font-semibold flex flex-col gap-3 justify-center items-center w-full">
-                        <div className=" mt-2 p-3 w-full">
+                        <div className=" mt-2 p-3 w-full max-sm:p-1 max-sm:mt-5">
                             <h1 className="text-2xl mx-6">Courses</h1>
                         </div>
                         {
@@ -51,7 +51,7 @@ const Courses = () => {
                                 <h1 className="text-4xl text-center p-2 w-full">Oops...! No Courses are found</h1>
                             </div>
                         }
-                        <div className="grid grid-cols-3 p-2 place-items-center gap-2 w-full">
+                        <div className="grid grid-cols-3 p-2 place-items-center gap-2 w-full max-sm:grid-cols-1 max-sm:p-5">
 
                             {
                                 courseList?.map((item, index) => {

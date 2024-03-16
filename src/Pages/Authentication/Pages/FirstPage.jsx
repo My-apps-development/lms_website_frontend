@@ -217,7 +217,7 @@ const FirstPage = ({ onNext, onCompanyListChange, token }) => {
                 <img src="/Login_left_logo.jpg" alt="left_logo" className=" h-screen object-cover w-[80%]" />
             </div> */}
             <div className="flex justify-center items-center p-2 font-semibold w-full">
-                <div className="flex flex-col justify-center items-center w-[90%] p-2 gap-5  rounded-md">
+            <div className="flex flex-col justify-center items-center w-[70%] p-2 gap-5 border-2 rounded-md max-sm:w-full max-sm:pb-5">
                     <div className="mt-5">
                         <img src="/LOGO.png" alt="logo" className="w-20 h-20 object-cover" />
                     </div>
@@ -236,7 +236,7 @@ const FirstPage = ({ onNext, onCompanyListChange, token }) => {
                     </div>
                     <div className="w-[70%] p-2 flex gap-2">
                         <input type="text" name="phone" id="phone" className="p-2 w-[70%] border-2 rounded-lg border-gray-300 focus:outline-[#B32073] focus:outline-1 " placeholder="Enter Mobile Number" onChange={handleChange} />
-                        <button className="w-[30%] p-2 border-2 rounded-lg text-[#B32073] border-[#B32073] hover:bg-[#B32073] hover:text-white" onClick={AddPhoneNumber}>Send Code</button>
+                        <button className="w-[30%] p-2 border-2 rounded-lg text-[#B32073] border-[#B32073] hover:bg-[#B32073] hover:text-white max-sm:text-xs max-sm:w-24" onClick={AddPhoneNumber}>Send Code</button>
                     </div>
                     <div className="w-[70%] flex flex-col gap-4 p-2">
                         <h1 className="w-full">Verification Code</h1>

@@ -11,7 +11,7 @@ const Assessment = () => {
         <div className="font-nunito text-[#827A7A]">
             <Header />
             <div className="relative shadow-xl font-semibold">
-                <div className="mt-5">
+                <div className="mt-5 max-sm:hidden">
                     <img src="/Banners/Assessment_Banner.jpeg" alt="Library_Banner" className="w-full h-96 object-cover blur-sm opacity-90" />
                 </div>
                 <div className="justify-center items-center flex absolute top-48 left-[680px]">
@@ -19,12 +19,12 @@ const Assessment = () => {
                 </div>
 
             </div>
-            <div className="p-2 mt-5 w-[90%] mx-20 text-black font-semibold flex justify-center items-start flex-col gap-3">
+            <div className="p-2 mt-5 w-[90%] mx-20 text-black font-semibold flex justify-center items-start flex-col gap-3 max-sm:w-full max-sm:mt-10 max-sm:mx-5">
                 <div className="font-bold text-xl">
                     <h1>Important Points to Remember</h1>
                 </div>
                 <div className="flex flex-col justify-center items-start gap-5">
-                    <div className="flex justify-center items-center gap-3">
+                    <div className="flex justify-center items-center gap-3 ">
                         <img src="https://cdn-icons-png.flaticon.com/128/7656/7656139.png" alt="" className="w-5 h-5" />
                         <p>Explore Courses - 1</p>
                     </div>

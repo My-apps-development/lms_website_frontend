@@ -48,22 +48,22 @@ const SecondPage = ({ onNext, companyList, token }) => {
 
         // console.log(profileInputs);
 
-        if(!profileInputs?.fullname){
+        if (!profileInputs?.fullname) {
             errorMessage("Fullname is Required")
             return
         }
 
-        if(!profileInputs?.license_num){
+        if (!profileInputs?.license_num) {
             errorMessage("License Number is Required")
             return
         }
 
-        if(UploadLicense === null){
+        if (UploadLicense === null) {
             errorMessage("Upload License is Required")
             return
         }
 
-        if(!profileInputs?.companyid){
+        if (!profileInputs?.companyid) {
             errorMessage("Company is Required")
             return
         }
@@ -99,7 +99,7 @@ const SecondPage = ({ onNext, companyList, token }) => {
 
 
             <div className="flex w-full gap-5 flex-col justify-center items-center p-2">
-                <div className="grid grid-cols-2 w-[90%] gap-2 p-3">
+                <div className="grid grid-cols-2 w-[90%] gap-2 p-3 max-sm:grid-cols-1">
                     <div className="flex flex-col p-2 gap-3">
                         <label htmlFor="">Full name</label>
                         <input type="text" name="fullname" id="fullname" className="p-3 border-2 border-gray-600 rounded-lg focus:outline-[#B32073]" onChange={handleChangeProfile} />
@@ -131,9 +131,9 @@ const SecondPage = ({ onNext, companyList, token }) => {
                     </div>
                 </div>
 
-                <div className="w-[90%] mt-3 shadow-xl p-2 rounded-lg flex justify-center items-center">
+                {fileDisplay === null ? "" : <div className="w-[90%] mt-3 shadow-xl p-2 rounded-lg flex justify-center items-center">
                     <img src={fileDisplay} alt="" className="rounded-lg object-cover w-96 h-56" />
-                </div>
+                </div>}
             </div>
 
 

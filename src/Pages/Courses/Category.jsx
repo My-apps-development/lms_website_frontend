@@ -82,7 +82,7 @@ const Category = () => {
                             <h1>Categories</h1>
                         </div>
 
-                        <div className="p-2 grid grid-cols-4 gap-5 m-10  font-semibold">
+                        <div className="p-2 grid grid-cols-4 gap-5 m-10  font-semibold max-sm:grid-cols-1">
                             {
                                 !categoryList?.length && <div className=" p-2 flex justify-center items-center  w-full h-96">
                                     <h1 className="text-4xl text-center p-2 w-full">Oops...! No Categories are found</h1>
@@ -93,7 +93,7 @@ const Category = () => {
                                     return (
                                         <div className="w-full rounded p-2 border-2 hover:scale-95 hover:duration-300" data-aos="flip-right" key={index}>
                                             <div>
-                                                <img src={item?.upload_thumbnail} alt="img" className="w-full h-80 rounded object-cover" />
+                                                <img src={item?.upload_thumbnail} alt="img" className="w-full h-80 rounded object-cover max-sm:h-72" />
                                             </div>
                                             <div>
                                                 <div className="p-2 flex justify-between items-center">

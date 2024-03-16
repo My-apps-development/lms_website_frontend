@@ -173,10 +173,10 @@ const Login = () => {
     // }
     return (
         <div className="flex justify-center items-center font-poppins">
-            <div className="w-[50%] flex justify-center items-center">
+            <div className="w-[50%] flex justify-center items-center max-sm:hidden">
                 <img src="/Login_left_logo.jpg" alt="left_logo" className=" h-screen object-cover w-[80%]" />
             </div>
-            <div className="w-[50%] flex justify-center items-center p-2 font-semibold border-2 rounded-md">
+            <div className="w-[50%] flex justify-center items-center p-2 font-semibold border-2 rounded-md max-sm:w-full max-sm:text-xs">
                 <ProfileStepper />
 
 

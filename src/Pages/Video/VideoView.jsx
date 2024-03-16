@@ -81,12 +81,12 @@ const VideoView = () => {
                 ) : (
                     loader ? <Loader /> :
                         <div>
-                            <div className="flex flex-col ml-20 gap-2 mt-10 w-[90%]">
-                                <div className="ml-20 mt-6">
+                            <div className="flex flex-col ml-20 gap-2 mt-10 w-[90%] max-sm:w-full max-sm:m-0">
+                                <div className="ml-20 mt-6 max-sm:ml-6">
                                     <h1>Home/Introduction</h1>
                                 </div>
                                 <div className="flex justify-center items-center" data-aos="fade-down">
-                                    <video controls width="90%" className="h-96" autoPlay key={chapterList[currentChapter]?._id} controlsList="nodownload">
+                                    <video controls width="90%" className="h-96 max-sm:h-56" autoPlay key={chapterList[currentChapter]?._id} controlsList="nodownload">
                                         <source src={chapterList[currentChapter]?.video_link} type="video/mp4" />
                                     </video>
                                 </div>
