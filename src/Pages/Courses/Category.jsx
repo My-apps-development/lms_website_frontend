@@ -71,11 +71,7 @@ const Category = () => {
     return (
         <div>
             <Header />
-            {
-                !categoryList?.length && <div className=" p-2 flex justify-center items-center  w-full h-96">
-                    <h1 className="text-4xl text-center p-2 w-full">Oops...! No Categories are found</h1>
-                </div>
-            }
+
             {
                 loader ? <Loader /> :
 
@@ -87,6 +83,11 @@ const Category = () => {
                         </div>
 
                         <div className="p-2 grid grid-cols-4 gap-5 m-10  font-semibold">
+                            {
+                                !categoryList?.length && <div className=" p-2 flex justify-center items-center  w-full h-96">
+                                    <h1 className="text-4xl text-center p-2 w-full">Oops...! No Categories are found</h1>
+                                </div>
+                            }
                             {
                                 filterWithRole?.map((item, index) => {
                                     return (

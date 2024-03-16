@@ -26,29 +26,35 @@ const Header = () => {
         <header className="font-nunito shadow-xl text-[#827A7A] font-semibold  w-full  bg-white p-2 sticky top-0 z-10" data-aos="fade-down">
             <nav className="flex w-full justify-around items-center p-2 " >
                 <div onClick={() => navigate("/")}>
-                    <img src="/LOGO.png" alt="" className="w-14 h-14 cursor-pointer" />
+                    <img src="/LOGO.png" alt="" className="w-16 h-16 cursor-pointer" />
                 </div>
-                <div className="flex justify-center items-center gap-10 p-2">
+                <div className="flex justify-center items-center gap-10 px-2">
 
-                    <NavLink to="/">
+                    <NavLink to="/" className={({ isActive, isPending }) =>
+                        isPending ? "" : isActive ? "py-1 border-b-2 border-[#B32073]  border-opacity-100 text-[#B32073] duration-200 cursor-pointer max-sm:text-xs" : ""
+                    }>
                         <div className="p-2">
                             <p>Home</p>
                         </div>
                     </NavLink>
 
-                    <NavLink to="/category">
+                    <NavLink to="/category" className={({ isActive, isPending }) =>
+                        isPending ? "" : isActive ? "py-1 border-b-2 border-[#B32073]  border-opacity-100 text-[#B32073] duration-200 cursor-pointer max-sm:text-xs" : ""
+                    }>
                         <div className="p-2">
                             <p>Videos</p>
                         </div>
                     </NavLink>
 
 
-                    <NavLink to="/library">
+                    <NavLink to="/library" className={({ isActive, isPending }) =>
+                        isPending ? "" : isActive ? "py-1 border-b-2 border-[#B32073]  border-opacity-100 text-[#B32073] duration-200 cursor-pointer max-sm:text-xs" : ""
+                    }>
                         <div className="p-2">
                             <p>Library</p>
                         </div>
                     </NavLink>
-{/* 
+                    {/* 
                     <NavLink to="/assessment">
                         <div className="p-2">
                             <p>Assessment</p>
@@ -82,7 +88,9 @@ const Header = () => {
                         <NavLink to="/login">
                             <button className="p-2 w-28 rounded-lg border-2 border-[#B32073] hover:bg-[#B32073] hover:text-white hover:scale-85 hover:duration-300">Login</button>
                         </NavLink>
-                        <button className="p-2 w-28 rounded-lg border-2 border-[#B32073] bg-[#B32073] text-white hover:scale-95 hover:duration-300 hover:bg-inherit hover:border-2 hover:border-[#B32073] hover:text-inherit">Sign Up</button>
+                        <NavLink to="/register">
+                            <button className="p-2 w-28 rounded-lg border-2 border-[#B32073] bg-[#B32073] text-white hover:scale-95 hover:duration-300 hover:bg-inherit hover:border-2 hover:border-[#B32073] hover:text-inherit">Sign Up</button>
+                        </NavLink>
                     </div>
                 }
             </nav>

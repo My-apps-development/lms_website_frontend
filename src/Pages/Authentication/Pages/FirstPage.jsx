@@ -87,15 +87,18 @@ const FirstPage = ({ onNext, onCompanyListChange, token }) => {
     const AddPhoneNumber = async (e) => {
         e.preventDefault()
 
-        if(activeButton === null) {
+        if (activeButton === null) {
             errorMessage("Role is Required")
-        }
-
-        if(!phone){
-            errorMessage("Phone is Required")
             return
         }
 
+        if (!phone) {
+            errorMessage("Phone Number is Required")
+            return
+        } else if(phone.length > 10 || phone.length < 10){
+            errorMessage("Enter 10 digit mobile number ")
+            return
+        }
         
         const formData = new FormData()
         formData.append("role", activeButton?.toLowerCase()?.trim())
@@ -118,13 +121,19 @@ const FirstPage = ({ onNext, onCompanyListChange, token }) => {
     const SendOtp = async (e) => {
         e.preventDefault()
 
-        if(!phone){
+        if (!phone) {
             errorMessage("Phone is Required")
+            return
+        } else if(phone.length > 10 || phone.length < 10){
+            errorMessage("Enter 10 digit mobile number ")
             return
         }
 
-        if(!otp){
+        if (!otp) {
             errorMessage("Otp is Required")
+            return
+        } else if(otp.length > 4 || otp.length < 4){
+            errorMessage("Otp contains 4 digits")
             return
         }
 

@@ -92,6 +92,9 @@ const Register = () => {
         if (!phone) {
             errorMessage("Phone Number is Required")
             return
+        } else if(phone.length > 10 || phone.length < 10){
+            errorMessage("Enter 10 digit mobile number ")
+            return
         }
 
 
@@ -119,10 +122,16 @@ const Register = () => {
         if (!phone) {
             errorMessage("Phone is Required")
             return
+        } else if(phone.length > 10 || phone.length < 10){
+            errorMessage("Enter 10 digit mobile number ")
+            return
         }
 
         if (!otp) {
             errorMessage("Otp is Required")
+            return
+        } else if(otp.length > 4 || otp.length < 4){
+            errorMessage("Otp contains 4 digits")
             return
         }
 
@@ -146,7 +155,11 @@ const Register = () => {
             if (!data?.user?.language) {
                 infoMessage("You have not registered properly, Please register again")
                 return
-            } else {
+            } else if(data?.user?.approve===false){
+                infoMessage("Your are not approved, Wait until our team approve your profile")
+                return
+            }
+            else {
                 localStorage.setItem("user", JSON.stringify(data?.user))
                 localStorage.setItem("token", JSON.stringify(data?.accessToken))
                 successMessage("Login success")
