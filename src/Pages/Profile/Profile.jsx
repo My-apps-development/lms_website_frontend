@@ -140,16 +140,16 @@ const Profile = () => {
             {
                 loader ? <Loader /> :
 
-                    <div className="flex flex-col gap-5 font-nunito font-semibold w-[80%] justify-center items-center my-10 mx-44 p-5 shadow-xl rounded-lg">
+                    <div className="flex flex-col gap-5 font-nunito font-semibold w-[80%] justify-center items-center my-10 mx-44 p-5 shadow-xl rounded-lg max-sm:w-full max-sm:m-0">
 
-                        <div className="flex flex-col gap-5 justify-center items-center p-2 w-96 " data-aos="fade-down">
+                        <div className="flex flex-col gap-5 justify-center items-center p-2 w-96 max-sm:w-full" data-aos="fade-down">
                             <img src={displayProfilePicture} alt="" className="w-32 h-32 rounded-full border-2" />
                             <input type="file" name="upload_profile" id="upload_profile" ref={fileRef} onChange={handleChangeProfilePhoto} className="hidden" />
                             <p className="text-[#B32073] cursor-pointer p-2" onClick={handleUploadProfilePicture}>Upload Profile</p>
                         </div>
 
-                        <div className="flex justify-center items-center  w-full p-2 ">
-                            <div className="grid grid-cols-2 w-[60%] p-5 gap-5" data-aos="fade-right">
+                        <div className="flex justify-center items-center  w-full p-2 max-sm:flex-col">
+                            <div className="grid grid-cols-2 w-[60%] p-5 gap-5 max-sm:grid-cols-1 max-sm:w-full" data-aos="fade-right">
                                 <div className="flex flex-col p-2 gap-3">
                                     <label htmlFor="">Full name</label>
                                     <input type="text" name="fullname" id="fullname" className="p-3 border-2 border-gray-600 rounded-lg focus:outline-[#B32073]" onChange={handleChangeProfile} value={profileInputs?.fullname} />
@@ -188,7 +188,7 @@ const Profile = () => {
                                     </div> */}
                             </div>
 
-                            <div className="w-[40%] mt-3 border-2 p-2 rounded-lg" data-aos="fade-left">
+                            <div className="w-[40%] mt-3 border-2 p-2 rounded-lg max-sm:w-full" data-aos="fade-left">
                                 <img src={fileDisplay} alt="" className="rounded-lg object-cover w-full h-52" />
 
                                 <div className="flex flex-col p-2 gap-3">

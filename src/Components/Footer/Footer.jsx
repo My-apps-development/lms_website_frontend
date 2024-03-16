@@ -4,9 +4,9 @@ import { FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
     return (
-        <div className="flex justify-center items-center w-full flex-col gap-5 font-semibold font-nunito text-white bg-[#B32073] h-96">
-            <div className="flex justify-around items-start gap-5 w-full">
-                <div className="flex flex-col justify-center items-start gap-2">
+        <div className="flex justify-center items-center w-full flex-col gap-5 font-semibold font-nunito text-white bg-[#B32073] h-96 max-sm:flex-col max-sm:h-full">
+            <div className="flex justify-around items-start gap-5 w-full max-sm:flex-col max-sm:justify-center max-sm:items-center">
+                <div className="flex flex-col justify-center items-start gap-2 max-sm:p-10 max-sm:items-center">
                     <div>
                         <img src="/LOGO.png" alt="logo" className="w-32 h-32 bg-white rounded-full" />
                     </div>
