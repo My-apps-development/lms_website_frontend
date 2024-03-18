@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import { axiosInstance } from "../../Utils/AxiosSetup"
 import Loader from "../../Utils/Loader"
-import { errorMessage } from "../../Utils/NotificationManager"
+import { errorMessage, successMessage } from "../../Utils/NotificationManager"
 
 
 const VideoView = () => {
@@ -20,7 +20,7 @@ const VideoView = () => {
     const [loader, setLoader] = useState(false)
     // console.log(state?.courseId);
 
-   
+
 
     // const fetchChapters = async () => {
     //     try {
@@ -57,7 +57,22 @@ const VideoView = () => {
     // console.log(chapterList[currentChapter]);
 
 
-    console.log(state);
+    const handleVideoEnd = async (_id) => {
+
+        const fD = new FormData()
+        fD.append("chapterid", _id)
+
+        try {
+            const response = await axiosInstance.post("/notification/chapterComplete", fD, { headers: { "Content-Type": "application/json" } })
+            const data = await response?.data
+            successMessage(data?.title)
+        } catch (error) {
+            errorMessage(error?.response?.data?.message)
+        }
+    }
+
+
+
 
 
 
@@ -86,7 +101,7 @@ const VideoView = () => {
                                     <h1>Home/Introduction</h1>
                                 </div>
                                 <div className="flex justify-center items-center" data-aos="fade-down">
-                                    <video controls width="90%" className="h-96 max-sm:h-56" autoPlay key={chapterList[currentChapter]?._id} controlsList="nodownload">
+                                    <video controls width="90%" className="h-96 max-sm:h-56" autoPlay key={chapterList[currentChapter]?._id} controlsList="nodownload" onEnded={() => handleVideoEnd(chapterList[currentChapter]?._id)}>
                                         <source src={chapterList[currentChapter]?.video_link} type="video/mp4" />
                                     </video>
                                 </div>
@@ -99,7 +114,7 @@ const VideoView = () => {
                                     </div>
                                     <div className="flex w-full p-2 font-semibold text-xl">
                                         <button className="p-2 w-full rounded-lg border-2 border-[#C4C4C4] flex justify-center items-center gap-2 bg-[#C4C4C4] text-white hover:scale-95 hover:duration-300" onClick={() => {
-                                            navigate("/assessment", {state : {courseId : chapterList[currentChapter]?.courseId}})
+                                            navigate("/assessment", { state: { courseId: chapterList[currentChapter]?.courseId } })
                                         }}>Assessment</button>
                                     </div>
                                     <div className="flex gap-3 mt-3 p-2">

@@ -15,7 +15,7 @@ const StartQuiz = () => {
     // console.log();
 
     const userId = JSON.parse(localStorage.getItem("user"))
-    
+
 
     const [currentQuestion, setCurrentQuestion] = useState(0)
 
@@ -103,7 +103,20 @@ const StartQuiz = () => {
     console.log(percentage);
 
 
-    console.log(questionList);
+
+
+    const handleButtonClick = () => {
+        if (currentQuestion === questionList.length - 1) {
+            calculateScore();
+            postQuiz();
+            AssessmentCompleted()// Call postQuiz function when it's the last question
+            console.log("State being passed to result route:", { finalScore: percentage, correctAnswer: correctAnswer, totalQuestions: questionList?.length });
+            navigate("/assessment/quiz/result", { state: { finalScore: percentage, correctAnswer: correctAnswer, totalQuestions: questionList?.length } })
+
+        } else {
+            nextQuestion(); // Call nextQuestion function for other questions
+        }
+    };
 
     const postQuiz = async () => {
 
@@ -128,17 +141,21 @@ const StartQuiz = () => {
         }
     }
 
-    const handleButtonClick = () => {
-        if (currentQuestion === questionList.length - 1) {
-            calculateScore();
-            postQuiz(); // Call postQuiz function when it's the last question
-            console.log("State being passed to result route:", { finalScore: percentage, correctAnswer: correctAnswer, totalQuestions: questionList?.length });
-            navigate("/assessment/quiz/result", { state: { finalScore: percentage, correctAnswer: correctAnswer, totalQuestions: questionList?.length } })
+    const AssessmentCompleted = async () => {
 
-        } else {
-            nextQuestion(); // Call nextQuestion function for other questions
+        const fD = new FormData()
+        fD.append("courseid", state?.courseId)
+
+        try {
+            const response = await axiosInstance.post("/notification/assessmentComplete", fD, { headers: { "Content-Type": "application/json" } })
+            const data = await response?.data
+            successMessage(data?.title)
+        } catch (error) {
+            errorMessage(error?.response?.data?.message)
         }
-    };
+    }
+
+
 
 
 

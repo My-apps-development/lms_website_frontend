@@ -39,14 +39,15 @@ function App() {
     document.addEventListener("contextmenu", preventDefault)
 
     document.addEventListener("keyup", (e) => {
-      if (e.key === "PrintScreen" || e.key === "Snapshot" || e.key === "PrtScn") {
+      if (e.key === "PrintScreen" || e.key === "Snapshot" || e.key === "PrtScn" || e.key === "Shift") {
       
         preventDefault(e);
-        alert("screen shot disbaled")
+        alert("screen shot disabled")
    
       }
     });
 
+  
 
 
     // const blockKeys = (e) => {
@@ -123,10 +124,17 @@ function App() {
 
   }, [])
 
+  const handleKeyDown = (e) => {
+    if (e.ctrlKey && e.key === 'PrintScreen') {
+      e.preventDefault();
+      alert('Screenshots are not allowed.');
+    }
+  };
+
 
 
   return (
-    <div>
+    <div onKeyDown={handleKeyDown}>
       <BrowserRouter>
         <ToastContainer />
 
