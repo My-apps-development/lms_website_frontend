@@ -36,7 +36,7 @@ const Category = () => {
 
 
 
-    const filterWithRole = categoryList.filter((item) => item?.role.toLowerCase()?.replace(/\s+/g, '') === user?.role.toLowerCase()?.replace(/\s+/g, ''))
+    const filterWithRole = categoryList.filter((item) => item?.role?.toLowerCase()?.replace(/\s+/g, '') === user?.role?.toLowerCase()?.replace(/\s+/g, ''))
 
 
 
