@@ -14,6 +14,9 @@ const StartQuiz = () => {
 
     // console.log();
 
+    const userId = JSON.parse(localStorage.getItem("user"))
+    
+
     const [currentQuestion, setCurrentQuestion] = useState(0)
 
     const [questionList, setQuestionList] = useState([])
@@ -67,6 +70,7 @@ const StartQuiz = () => {
             ...prevAnswer,
             [currentQuizNumber._id]: selectedOption
         }))
+        calculateScore()
 
     }
 
@@ -109,6 +113,7 @@ const StartQuiz = () => {
         postAssignment.append("correctanswer", correctAnswer)
         postAssignment.append("wronganswer", wrongAnswer)
         postAssignment.append("percentage", percentage)
+        postAssignment.append("userId", userId?._id)
 
         try {
             setLoader(true)
