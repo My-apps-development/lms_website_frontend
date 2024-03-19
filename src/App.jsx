@@ -19,6 +19,7 @@ import Courses from './Pages/Courses/Courses';
 import ProtectedWrapper from './Utils/ProtectedWrapper';
 import NotFound from './Pages/NotFound/NotFound';
 import Result from './Pages/Assessment/Result';
+import Certificate from './Pages/Certificate/Certificate';
 // import Protection from './Pages/ScreenRocordProtection.jsx/Protection';
 
 function App() {
@@ -39,7 +40,7 @@ function App() {
     document.addEventListener("contextmenu", preventDefault)
 
     document.addEventListener("keyup", (e) => {
-      if (e.key === "PrintScreen" || e.key === "Snapshot" || e.key === "PrtScn" || e.key === "Shift") {
+      if (e.key === "PrintScreen" || e.key === "Snapshot" || e.key === "PrtScn") {
       
         preventDefault(e);
         alert("screen shot disabled")
@@ -151,6 +152,7 @@ function App() {
           <Route path='/video/view/:id' element={<ProtectedWrapper><VideoView /></ProtectedWrapper>} />
           <Route path='/profile' element={<ProtectedWrapper><Profile /></ProtectedWrapper>} />
           <Route path='/assessment/quiz/result' element={<ProtectedWrapper><Result /></ProtectedWrapper>} />
+          <Route path='/certificate' element={<ProtectedWrapper><Certificate /></ProtectedWrapper>} />
           <Route path='*' element={<NotFound />} />
 
         </Routes>
