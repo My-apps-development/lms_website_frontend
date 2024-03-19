@@ -20,13 +20,14 @@ const Profile = () => {
 
     const [loader, setLoader] = useState(false)
 
-
+   
 
     const [profilePicture, setProfilePicture] = useState(null)
     const [displayProfilePicture, setDisplayProfilePicture] = useState(null)
 
     const fileRef = useRef()
 
+    
 
 
     const handleChangeProfile = (e) => {
@@ -100,6 +101,13 @@ const Profile = () => {
                 }
             })
             const data = await response?.data
+            let user = JSON.parse(localStorage.getItem("user"))
+            user.fullname = profileInputs?.fullname
+            user.license_num = profileInputs?.license_num
+            user.mobile = profileInputs?.mobile
+            user.email = profileInputs?.email
+            
+            localStorage.setItem("user", JSON.stringify(user))
             // console.log(data.message);
             successMessage(data?.message)
             fetchProfile()

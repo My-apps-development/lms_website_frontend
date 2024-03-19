@@ -41,7 +41,7 @@ const Header = () => {
     }
 
 
-    console.log(notificationList);
+  
 
 
 
@@ -114,7 +114,7 @@ const Header = () => {
                                     <div className=" absolute  mt-10 w-36 z-10 bg-[#B32073] rounded-lg text-white" data-aos="fade-left">
                                         <ul className="flex flex-col p-2 gap-3 justify-center items-center ">
                                             <li onClick={() => navigate("/profile")} className="cursor-pointer">Profile</li>
-                                            <li className="cursor-pointer">Certificate</li>
+                                            <li className="cursor-pointer" onClick={()=>navigate("/certificate")}>Certificate</li>
                                             <li className="cursor-pointer" onClick={handleLogout}>Logout</li>
                                         </ul>
                                     </div>
