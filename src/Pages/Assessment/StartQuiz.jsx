@@ -84,7 +84,7 @@ const StartQuiz = () => {
 
     const currentQuizNumber = questionList[currentQuestion]
 
-    console.log(currentQuizNumber);
+    // console.log(currentQuizNumber);
 
     const calculateScore = () => {
         let correctAnswer = 0
@@ -111,11 +111,11 @@ const StartQuiz = () => {
     const percentage = ((correctAnswer / questionList.length) * 100).toFixed(2) + "%"
 
 
-    console.log(answer, "answers");
-    console.log(totalMark, "totalmarks");
-    console.log(correctAnswer, "correct answer");
-    console.log(wrongAnswer, "wrong answer");
-    console.log(percentage);
+    // console.log(answer, "answers");
+    // console.log(totalMark, "totalmarks");
+    // console.log(correctAnswer, "correct answer");
+    // console.log(wrongAnswer, "wrong answer");
+    // console.log(percentage);
 
 
 
