@@ -17,7 +17,7 @@ const Header = () => {
 
 
     const token = JSON.parse(localStorage.getItem("token"))
-    console.log(token);
+    // console.log(token);
 
     const style = {
         position: 'absolute',

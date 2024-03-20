@@ -42,11 +42,9 @@ const StartQuiz = () => {
         setCurrentQuestion((next) => next + 1)
     }
 
-    // console.log(currentQuestion);
 
-    const currentQuizNumber = questionList[currentQuestion]
 
-    // console.log(currentQuizNumber);
+
 
     const startQuiz = async () => {
         try {
@@ -64,15 +62,29 @@ const StartQuiz = () => {
 
     const handleAnswer = (selectedOption) => {
 
-        // console.log(selectedOption);
+        console.log(selectedOption, currentQuizNumber?.correct_option);
 
-        setAnswer((prevAnswer) => ({
-            ...prevAnswer,
-            [currentQuizNumber._id]: selectedOption
-        }))
-        calculateScore()
+        const currentQuiz = questionList[currentQuestion];
+        const isCorrect = selectedOption === currentQuiz?.correct_option;
+
+        if (isCorrect) {
+            setCorrectAnswer((prevCount) => prevCount + 1);
+            setTotalMark((prevMark) => prevMark + currentQuiz?.marks);
+        } else {
+            setWrongAnswer((prevCount) => prevCount + 1);
+        }
+
+        // setAnswer((prevAnswer) => ({
+        //     ...prevAnswer,
+        //     [currentQuizNumber._id]: selectedOption
+        // }))
+        // calculateScore()
 
     }
+
+    const currentQuizNumber = questionList[currentQuestion]
+
+    console.log(currentQuizNumber);
 
     const calculateScore = () => {
         let correctAnswer = 0
@@ -94,20 +106,22 @@ const StartQuiz = () => {
         setTotalMark(totalMarks)
     }
 
+
+
+    const percentage = ((correctAnswer / questionList.length) * 100).toFixed(2) + "%"
+
+
     console.log(answer, "answers");
     console.log(totalMark, "totalmarks");
     console.log(correctAnswer, "correct answer");
     console.log(wrongAnswer, "wrong answer");
-
-    const percentage = ((correctAnswer / questionList.length) * 100).toFixed(2) + "%"
     console.log(percentage);
-
 
 
 
     const handleButtonClick = () => {
         if (currentQuestion === questionList.length - 1) {
-            calculateScore();
+            // calculateScore();
             postQuiz();
             AssessmentCompleted()// Call postQuiz function when it's the last question
             console.log("State being passed to result route:", { finalScore: percentage, correctAnswer: correctAnswer, totalQuestions: questionList?.length });
@@ -115,6 +129,7 @@ const StartQuiz = () => {
 
         } else {
             nextQuestion(); // Call nextQuestion function for other questions
+            // calculateScore()
         }
     };
 
@@ -141,6 +156,8 @@ const StartQuiz = () => {
         }
     }
 
+    //---------------------------------------  Notification Start   -------------------------------------------------------------------------
+
     const AssessmentCompleted = async () => {
 
         const fD = new FormData()
@@ -155,7 +172,7 @@ const StartQuiz = () => {
         }
     }
 
-
+    //---------------------------------------  Notification End   -------------------------------------------------------------------------
 
 
 

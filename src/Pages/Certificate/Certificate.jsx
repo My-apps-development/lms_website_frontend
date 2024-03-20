@@ -41,7 +41,9 @@ const Certificate = () => {
         });
     };
 
-    console.log(certificateData);
+    // console.log(certificateData);
+
+    // console.log(certificateData?.assignments[0]?.percentage.split(".")[0]);
 
     useEffect(() => {
         fetchCertificate()
@@ -54,7 +56,7 @@ const Certificate = () => {
                     <h1>Certificate</h1>
                 </div>
                 {
-                    certificateData?.data[0]?.assignments?.percentage >= "50%" ? <div>
+                     certificateData?.assignments[0]?.percentage.split(".")[0] >= 50 ? <div>
                         <div className="flex justify-center items-center m-10">
                             <div className="w-[70%]  shadow-2xl flex justify-center items-center flex-col font-semibold p-10 certificate-template">
                                 <div className="border-2 border-[#B32073] rounded-lg p-5 flex flex-col gap-4 ">
