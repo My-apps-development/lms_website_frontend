@@ -199,13 +199,18 @@ const StartQuiz = () => {
                             </div>
                         </div>
                         <div className="w-full flex justify-center items-center my-10 p-2 flex-col">
-                            <div className="grid grid-cols-2 w-[70%] p-2 gap-5 place-items-center max-sm:grid-cols-1 ">
-                                <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_A)}>A. {currentQuizNumber?.option_A}</p>
-                                <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_B)}>B. {currentQuizNumber?.option_B}</p>
-                                <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_C)}>C. {currentQuizNumber?.option_C}</p>
-                                {
-                                    currentQuizNumber?.option_D == " "?.replace(/\s+/g, '') ? <p className="bg-gray-600 w-96 py-2 px-5 text-center cursor-pointer text-white max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_D)}>D. {currentQuizNumber?.option_D}</p> : null
-                                }
+                            <div className="flex w-full">
+                                <div className="grid grid-cols-2 w-[60%] p-2 gap-5 place-items-center max-sm:grid-cols-1 mx-32 ">
+                                    <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_A)}>A. {currentQuizNumber?.option_A}</p>
+                                    <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_B)}>B. {currentQuizNumber?.option_B}</p>
+                                    <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_C)}>C. {currentQuizNumber?.option_C}</p>
+                                    {
+                                        currentQuizNumber?.option_D == " "?.replace(/\s+/g, '') ? <p className="bg-gray-600 w-96 py-2 px-5 text-center cursor-pointer text-white max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_D)}>D. {currentQuizNumber?.option_D}</p> : null
+                                    }
+                                </div>
+                                <div className="w-[30%]">
+                                {currentQuizNumber?.question_image && <img src={currentQuizNumber?.question_image} alt={currentQuizNumber?._id} className="w-24 h-24" />}
+                                </div>
                             </div>
 
                             <div className="w-[80%] my-10 p-2">
