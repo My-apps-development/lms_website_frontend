@@ -196,9 +196,15 @@ const StartQuiz = () => {
                                 <div className="w-full flex flex-wrap max-sm:text-xs">
                                     <h4>{currentQuizNumber?.question}</h4>
                                 </div>
+
                             </div>
                         </div>
-                        <div className="w-full flex justify-center items-center my-10 p-2 flex-col">
+                        <div className="w-full flex justify-center items-center my-10 p-2 flex-col gap-3">
+                            <div className="w-full flex justify-around">
+                                {currentQuizNumber?.question_audio && <audio controls>
+                                    <source src={currentQuizNumber?.question_audio} type="audio/mp3"></source>
+                                </audio>}
+                            </div>
                             <div className="flex w-full">
                                 <div className="grid grid-cols-2 w-[60%] p-2 gap-5 place-items-center max-sm:grid-cols-1 mx-32 ">
                                     <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_A)}>A. {currentQuizNumber?.option_A}</p>
@@ -209,7 +215,8 @@ const StartQuiz = () => {
                                     }
                                 </div>
                                 <div className="w-[30%]">
-                                {currentQuizNumber?.question_image && <img src={currentQuizNumber?.question_image} alt={currentQuizNumber?._id} className="w-24 h-24" />}
+                                    {currentQuizNumber?.question_image && <img src={currentQuizNumber?.question_image} alt={currentQuizNumber?._id} className="w-24 h-24" />}
+
                                 </div>
                             </div>
 
