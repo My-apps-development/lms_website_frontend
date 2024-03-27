@@ -85,7 +85,7 @@ const Category = () => {
                         <div className="p-2 grid grid-cols-4 gap-5 m-10  font-semibold max-sm:grid-cols-1">
                             {
                                 !categoryList?.length && <div className=" p-2 flex justify-center items-center  w-full h-96">
-                                    <h1 className="text-4xl text-center p-2 w-full">Oops...! No Categories are found</h1>
+                                    <h1 className="text-4xl text-center p-2 w-full animate-pulse">Oops...! No Categories are found &#128531;</h1>
                                 </div>
                             }
                             {

@@ -48,7 +48,7 @@ const Courses = () => {
                         </div>
                         {
                             !courseList.length && <div className=" p-2 flex justify-center items-center h-96 w-full">
-                                <h1 className="text-4xl text-center p-2 w-full">Oops...! No Courses are found</h1>
+                                <h1 className="text-4xl text-center p-2 w-full animate-pulse">Oops...! No Courses are found &#128531;</h1>
                             </div>
                         }
                         <div className="grid grid-cols-3 p-2 place-items-center gap-2 w-full max-sm:grid-cols-1 max-sm:p-5">

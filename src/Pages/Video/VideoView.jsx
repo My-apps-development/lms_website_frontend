@@ -72,7 +72,7 @@ const VideoView = () => {
     }
 
 
-
+   
 
 
 
@@ -118,8 +118,8 @@ const VideoView = () => {
                                         }}>Assessment</button>
                                     </div>
                                     <div className="flex gap-3 mt-3 p-2">
-                                        <button className="p-2 w-32 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300" data-aos="flip-left" onClick={PreviousChapter}>&lt; Previous</button>
-                                        <button className="p-2 w-36 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300" data-aos="flip-right" onClick={NextChapter}>Next Chapter  &gt;</button>
+                                        <button className={`p-2 w-32 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300 ${currentChapter === 0 && "disabled:bg-gray-600 disabled:border-gray-600 disabled:cursor-not-allowed" }`} disabled={currentChapter == 0} data-aos="flip-left" onClick={PreviousChapter}>&lt; Previous</button>
+                                        <button className={`p-2 w-36 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300 ${currentChapter === chapterList?.length - 1 && "disabled:bg-gray-600 disabled:border-gray-600 disabled:cursor-not-allowed"}`} data-aos="flip-right" onClick={NextChapter} disabled={currentChapter === chapterList?.length-1}>Next Chapter  &gt;</button>
                                     </div>
                                 </div>
                             </div>
