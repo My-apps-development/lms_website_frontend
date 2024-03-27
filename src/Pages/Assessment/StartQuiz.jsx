@@ -33,6 +33,8 @@ const StartQuiz = () => {
 
     const navigate = useNavigate()
 
+    const user = JSON.parse(localStorage.getItem("user"))
+
     const previousQuestion = () => {
 
         setCurrentQuestion((prev) => Math.max(prev - 1, 0));
@@ -51,7 +53,8 @@ const StartQuiz = () => {
             setLoader(true)
             const response = await axiosInstance.get(`/quiz?courseId=${state?.courseId}`)
             const data = await response?.data
-            setQuestionList(data?.data);
+            const filteredQuestions = data?.data.filter(question => question?.language.toLowerCase() === user?.language?.toLowerCase());
+            setQuestionList(filteredQuestions);
             setLoader(false)
         } catch (error) {
             setLoader(false)
@@ -60,6 +63,7 @@ const StartQuiz = () => {
         }
     }
 
+    
     const handleAnswer = (selectedOption) => {
 
         console.log(selectedOption, currentQuizNumber?.correct_option);
@@ -84,7 +88,6 @@ const StartQuiz = () => {
 
     const currentQuizNumber = questionList[currentQuestion]
 
-    // console.log(currentQuizNumber);
 
     const calculateScore = () => {
         let correctAnswer = 0
@@ -183,52 +186,54 @@ const StartQuiz = () => {
         <div>
             <Header />
             {
-                loader ? <Loader /> : <div className="flex justify-center items-center flex-col w-full font-semibold">
-                    <div className="w-full text-center text-2xl max-sm:p-5">
-                        <h1>Questions {currentQuestion + 1}/{questionList.length}</h1>
-                    </div>
-                    <div className="w-full max-sm:text-xs">
-                        <div className="bg-[#B32073] p-2">
-                            <div className="flex gap-5 p-10  text-2xl text-white ml-32 max-sm:m-0">
-                                <div className=" flex justify-center items-center max-sm:hidden">
-                                    <p className="text-black w-10 h-10 rounded-full bg-white text-center">{currentQuestion + 1}</p>
-                                </div>
-                                <div className="w-full flex flex-wrap max-sm:text-xs">
-                                    <h4>{currentQuizNumber?.question}</h4>
-                                </div>
-
-                            </div>
+                loader ? <Loader /> : <div>
+                    {!questionList?.length ? <div className="h-96 flex justify-center items-center font-semibold text-2xl transition-all animate-pulse">No Question found with Course &#128531;</div> : <div className="flex justify-center items-center flex-col w-full font-semibold">
+                        <div className="w-full text-center text-2xl max-sm:p-5">
+                            <h1>Questions {currentQuestion + 1}/{questionList.length}</h1>
                         </div>
-                        <div className="w-full flex justify-center items-center my-10 p-2 flex-col gap-3">
-                            <div className="w-full flex justify-around">
-                                {currentQuizNumber?.question_audio && <audio controls>
-                                    <source src={currentQuizNumber?.question_audio} type="audio/mp3"></source>
-                                </audio>}
-                            </div>
-                            <div className="flex w-full">
-                                <div className="grid grid-cols-2 w-[60%] p-2 gap-5 place-items-center max-sm:grid-cols-1 mx-32 ">
-                                    <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_A)}>A. {currentQuizNumber?.option_A}</p>
-                                    <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_B)}>B. {currentQuizNumber?.option_B}</p>
-                                    <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_C)}>C. {currentQuizNumber?.option_C}</p>
-                                    {
-                                        currentQuizNumber?.option_D == " "?.replace(/\s+/g, '') ? <p className="bg-gray-600 w-96 py-2 px-5 text-center cursor-pointer text-white max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_D)}>D. {currentQuizNumber?.option_D}</p> : null
-                                    }
-                                </div>
-                                <div className="w-[30%]">
-                                    {currentQuizNumber?.question_image && <img src={currentQuizNumber?.question_image} alt={currentQuizNumber?._id} className="w-24 h-24" />}
+                        <div className="w-full max-sm:text-xs">
+                            <div className="bg-[#B32073] p-2">
+                                <div className="flex gap-5 p-10  text-2xl text-white ml-32 max-sm:m-0">
+                                    <div className=" flex justify-center items-center max-sm:hidden">
+                                        <p className="text-black w-10 h-10 rounded-full bg-white text-center">{currentQuestion + 1}</p>
+                                    </div>
+                                    <div className="w-full flex flex-wrap max-sm:text-xs">
+                                        <h4>{currentQuizNumber?.question}</h4>
+                                    </div>
 
                                 </div>
                             </div>
+                            <div className="w-full flex justify-center items-center my-10 p-2 flex-col gap-3">
+                                <div className="w-full flex justify-around">
+                                    {currentQuizNumber?.question_audio && <audio controls>
+                                        <source src={currentQuizNumber?.question_audio} type="audio/mp3"></source>
+                                    </audio>}
+                                </div>
+                                <div className="flex w-full">
+                                    <div className="grid grid-cols-2 w-[60%] p-2 gap-5 place-items-center max-sm:grid-cols-1 mx-32 ">
+                                        <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_A)}>A. {currentQuizNumber?.option_A}</p>
+                                        <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_B)}>B. {currentQuizNumber?.option_B}</p>
+                                        <p className="bg-gray-600 w-96 py-2 px-5 text-center text-white cursor-pointer max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_C)}>C. {currentQuizNumber?.option_C}</p>
+                                        {
+                                            currentQuizNumber?.option_D == " "?.replace(/\s+/g, '') ? <p className="bg-gray-600 w-96 py-2 px-5 text-center cursor-pointer text-white max-sm:w-72" onClick={() => handleAnswer(currentQuizNumber?.option_D)}>D. {currentQuizNumber?.option_D}</p> : null
+                                        }
+                                    </div>
+                                    <div className="w-[30%]">
+                                        {currentQuizNumber?.question_image && <img src={currentQuizNumber?.question_image} alt={currentQuizNumber?._id} className="w-24 h-24" />}
 
-                            <div className="w-[80%] my-10 p-2">
-                                <div className="flex justify-between items-center gap-10 ">
-                                    <button className={`p-2 bg-[#B32073] w-32 text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073] disabled:bg-gray-600 ${currentQuestion === 0 ? "invisible" : ""}`} onClick={previousQuestion} disabled={currentQuizNumber === 0}>Previous</button>
-                                    <button className={`p-2 bg-[#B32073] w-32 text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073] disabled:bg-gray-600 `} onClick={handleButtonClick} disabled={currentQuizNumber == questionList.length - 1}>{currentQuestion === questionList.length - 1 ? "Submit" : "Next"}</button>
+                                    </div>
+                                </div>
+
+                                <div className="w-[80%] my-10 p-2">
+                                    <div className="flex justify-between items-center gap-10 ">
+                                        <button className={`p-2 bg-[#B32073] w-32 text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073] disabled:bg-gray-600 ${currentQuestion === 0 ? "invisible" : ""}`} onClick={previousQuestion} disabled={currentQuizNumber === 0}>Previous</button>
+                                        <button className={`p-2 bg-[#B32073] w-32 text-white rounded-lg  hover:bg-inherit hover:border-[#B32073] hover:border-2 hover:text-[#B32073] disabled:bg-gray-600 `} onClick={handleButtonClick} disabled={currentQuizNumber == questionList.length - 1}>{currentQuestion === questionList.length - 1 ? "Submit" : "Next"}</button>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
-
-                    </div>
+                    </div>}
                 </div>
             }
             <Footer />
