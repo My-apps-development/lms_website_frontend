@@ -99,7 +99,7 @@ const Register = () => {
 
 
         const formData = new FormData()
-        formData.append("role", activeButton?.toLowerCase()?.trim())
+        formData.append("role", activeButton?.trim())
         formData.append("phone", phone)
 
         try {

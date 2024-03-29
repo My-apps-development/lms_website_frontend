@@ -63,10 +63,13 @@ const VideoView = () => {
         fD.append("chapterid", _id)
 
         try {
+            setLoader(true)
             const response = await axiosInstance.post("/notification/chapterComplete", fD, { headers: { "Content-Type": "application/json" } })
             const data = await response?.data
             successMessage(data?.title)
+            setLoader(false)
         } catch (error) {
+            setLoader(false)
             errorMessage(error?.response?.data?.message)
         }
     }
@@ -91,14 +94,14 @@ const VideoView = () => {
             {
                 !chapterList?.length ? (
                     <div className=" p-2 flex justify-center items-center h-96 w-full">
-                        <h1 className="text-4xl text-center p-2 w-full">Oops...! No Chapters are found</h1>
+                        <h1 className="text-4xl text-center p-2 w-full animate-pulse">Oops...! No Chapters are found &#128531;</h1>
                     </div>
                 ) : (
                     loader ? <Loader /> :
                         <div>
                             <div className="flex flex-col ml-20 gap-2 mt-10 w-[90%] max-sm:w-full max-sm:m-0">
                                 <div className="ml-20 mt-6 max-sm:ml-6">
-                                    <h1>Home/Introduction</h1>
+                                    <h1>Home/{chapterList[currentChapter]?.title}</h1>
                                 </div>
                                 <div className="flex justify-center items-center" data-aos="fade-down">
                                     <video controls width="90%" className="h-96 max-sm:h-56" autoPlay key={chapterList[currentChapter]?._id} controlsList="nodownload" onEnded={() => handleVideoEnd(chapterList[currentChapter]?._id)}>
@@ -118,8 +121,8 @@ const VideoView = () => {
                                         }}>Assessment</button>
                                     </div>
                                     <div className="flex gap-3 mt-3 p-2">
-                                        <button className={`p-2 w-32 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300 ${currentChapter === 0 && "disabled:bg-gray-600 disabled:border-gray-600 disabled:cursor-not-allowed" }`} disabled={currentChapter == 0} data-aos="flip-left" onClick={PreviousChapter}>&lt; Previous</button>
-                                        <button className={`p-2 w-36 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300 ${currentChapter === chapterList?.length - 1 && "disabled:bg-gray-600 disabled:border-gray-600 disabled:cursor-not-allowed"}`} data-aos="flip-right" onClick={NextChapter} disabled={currentChapter === chapterList?.length-1}>Next Chapter  &gt;</button>
+                                        <button className={`p-2 w-32 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300 ${currentChapter === 0 && "disabled:bg-gray-600 disabled:border-gray-600 disabled:cursor-not-allowed" }`} disabled={currentChapter == 0}  onClick={PreviousChapter}>&lt; Previous</button>
+                                        <button className={`p-2 w-36 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300 ${currentChapter === chapterList?.length - 1 && "disabled:bg-gray-600 disabled:border-gray-600 disabled:cursor-not-allowed"}`}  onClick={NextChapter} disabled={currentChapter === chapterList?.length-1}>Next Chapter  &gt;</button>
                                     </div>
                                 </div>
                             </div>

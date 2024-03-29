@@ -13,14 +13,16 @@ const Courses = () => {
     const navigate = useNavigate()
     const [courseList, setCourseList] = useState([])
     const [loader, setLoader] = useState(false)
+    const user = JSON.parse(localStorage.getItem("user"))
 
     const fetchCourses = async () => {
 
         try {
             setLoader(true)
             const response = await axiosInstance.get("/homepage/fetchcourse")
-            const data = await response?.data
-            setCourseList(data?.courseData);
+            const data = await response?.data?.courseData
+            const filterWithRole = data?.filter(course => course?.course?.role?.toLowerCase()?.trim()?.replace(/\s/g, '') === user?.role?.toLowerCase()?.trim()?.replace(/\s/g, ''))
+            setCourseList(filterWithRole);
             setLoader(false)
         } catch (error) {
             errorMessage(error?.response?.data?.message)
