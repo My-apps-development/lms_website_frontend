@@ -57,11 +57,13 @@ const Courses = () => {
 
                             {
                                 courseList?.map((item, index) => {
-                                    console.log(item?.course?.status?.toLowerCase());
+                                    // console.log(item?.course?.status?.toLowerCase());
+                                    console.log(item?.course?.language, user?.language);
+                                    // console.log(item?.chapters?.filter(chapter => chapter?.language === user?.language));
                                     return (
                                         <div key={index}>
                                             {
-                                                item?.course?.status?.toLowerCase() === "active" &&
+                                                item?.course?.status?.toLowerCase() === "active" && item?.course?.language?.toLowerCase()?.trim() === user?.language?.toLowerCase()?.trim() &&
 
                                                 <div className=" rounded p-2 border-2 font-semibold" data-aos="flip-left" >
                                                     <div className="h-60 w-100">
@@ -71,14 +73,14 @@ const Courses = () => {
                                                     </div>
                                                     <div>
                                                         <div className="text-sm p-2 border-b-2">
-                                                            <p>{item?.chapters?.length} Chapters </p>
+                                                            <p>{item?.chapters?.filter(chapter => chapter?.language?.toLowerCase()?.trim() === user?.language?.toLowerCase()?.trim())?.length} Chapters </p>
                                                         </div>
                                                         <div className="p-2 flex justify-between items-center">
                                                             <h1 className="font-bold text-2xl capitalize">{item?.course?.title}</h1>
                                                             {/* <p>{item?.course?.description}</p> */}
                                                             <div className="flex justify-between items-center">
                                                                 {/* <p className="invisible">412 students</p> */}
-                                                                <p className="px-5 py-2 text-white bg-orange-600 cursor-pointer" onClick={() => navigate(`/video/view/${item?.course?._id}`, { state: { courseId: item?.course?._id, chapters: item?.chapters } })}><FaArrowRightLong /></p>
+                                                                <p className="px-5 py-2 text-white bg-orange-600 cursor-pointer" onClick={() => navigate(`/video/view/${item?.course?._id}`, { state: { courseId: item?.course?._id, chapters: item?.chapters?.filter(chapter => chapter?.language?.toLowerCase()?.trim() === user?.language?.toLowerCase()?.trim()) } })}><FaArrowRightLong /></p>
                                                             </div>
                                                         </div>
                                                     </div>
