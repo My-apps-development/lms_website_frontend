@@ -109,7 +109,7 @@ const VideoView = () => {
                                         <h1>Home/{chapterList[currentChapter]?.title}</h1>
                                     </div>
                                     <div className="flex justify-center items-center" data-aos="fade-down">
-                                        <video controls width="90%" className="h-96 max-sm:h-56" autoPlay key={chapterList[currentChapter]?._id} controlsList="nodownload" onEnded={() => handleVideoEnd(chapterList[currentChapter]?._id)}>
+                                        <video controls width="90%" className="h-96 max-sm:h-56 object-cover" autoPlay key={chapterList[currentChapter]?._id} controlsList="nodownload" onEnded={() => handleVideoEnd(chapterList[currentChapter]?._id)}>
                                             <source src={chapterList[currentChapter]?.video_link} type="video/mp4" />
                                         </video>
                                     </div>
