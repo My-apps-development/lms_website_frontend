@@ -67,7 +67,7 @@ const Courses = () => {
 
                                                 <div className=" rounded p-2 border-2 font-semibold" data-aos="flip-left" >
                                                     <div className="h-60 w-100">
-                                                        <video controls width="100%" className="h-60" controlsList="nodownload">
+                                                        <video controls width="100%" className="h-60 object-cover" controlsList="nodownload">
                                                             <source src={item?.course?.video_link} type="video/mp4" />
                                                         </video>
                                                     </div>

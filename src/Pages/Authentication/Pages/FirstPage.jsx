@@ -101,7 +101,7 @@ const FirstPage = ({ onNext, onCompanyListChange, token }) => {
         }
         
         const formData = new FormData()
-        formData.append("role", activeButton?.toLowerCase()?.trim())
+        formData.append("role", activeButton?.trim())
         formData.append("phone", phone)
 
         try {
@@ -226,7 +226,7 @@ const FirstPage = ({ onNext, onCompanyListChange, token }) => {
                     </div>
                     <div className="flex flex-col w-[70%] gap-4 p-2">
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Driver" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Driver</button>
-                        <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "House Keeper" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>House Keeper</button>
+                        <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Housekeeper" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Housekeeper</button>
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Security Guard" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Security Guard</button>
 
                         {/* className={({ isActive, isPending }) => isPending ? "flex  flex-row items-center duration-300 hover:shadow-xl hover:scale-105 hover:text-[#B32073]  pr-6" : isActive ? "flex text-[#B32073] flex-row items-center duration-300 scale-105 pr-6 bg-gray-300  rounded hover:text-[#B32073] hover:shadow-xl " : "text-gray-500"} */}

@@ -158,6 +158,9 @@ const Register = () => {
             } else if(data?.user?.approve===false){
                 infoMessage("Your are not approved, Wait until our team approve your profile")
                 return
+            } else if(data?.user?.status?.toLowerCase()?.trim()!=="active"){
+                infoMessage("Your Account has been set to Inactive, Contact our team to make active your account")
+                return
             }
             else {
                 localStorage.setItem("user", JSON.stringify(data?.user))
@@ -228,7 +231,7 @@ const Register = () => {
                     </div>
                     <div className="flex flex-col w-[70%] gap-4 p-2">
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Driver" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Driver</button>
-                        <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "House Keeper" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>House Keeper</button>
+                        <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Housekeeper" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Housekeeper</button>
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Security Guard" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Security Guard</button>
 
                         {/* className={({ isActive, isPending }) => isPending ? "flex  flex-row items-center duration-300 hover:shadow-xl hover:scale-105 hover:text-[#B32073]  pr-6" : isActive ? "flex text-[#B32073] flex-row items-center duration-300 scale-105 pr-6 bg-gray-300  rounded hover:text-[#B32073] hover:shadow-xl " : "text-gray-500"} */}
