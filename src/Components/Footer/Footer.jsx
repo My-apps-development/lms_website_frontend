@@ -50,11 +50,11 @@ const Footer = () => {
                 </div>
                 <div className="p-2">
                     <div className="font-bold text-xl p-1">
-                        <h1>Contacts</h1>
+                        <h1>Contactus</h1>
                     </div>
                     <div className="p-1">
-                        <p>Hyderabad</p>
-                        <p>Support</p>
+                        <p>Info@advayafm.com</p>
+                        <p>8125991247</p>
                     </div>
                 </div>
             </div>
