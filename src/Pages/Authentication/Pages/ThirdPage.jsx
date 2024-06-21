@@ -31,7 +31,7 @@ const ThirdPage = ({ token }) => {
 
     return (
         <div>
-            <div className="flex justify-center items-center px-4 py-2 w-[90%] flex-col h-[550px] max-sm:w-full">
+            <div className="flex justify-center items-center px-4 py-2 w-[90%] flex-col h-[550px] max-sm:w-full h-screen">
                 <div className="flex flex-col gap-3 p-3 w-[90%] max-sm:w-full">
                     <label htmlFor="">Languages <span className="text-red-500">*</span></label>
                     {/* <input type="text" name="language" id="language" className="p-3 border-2 border-gray-600 rounded-lg focus:outline-[#B32073]" /> */}

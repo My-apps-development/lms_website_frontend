@@ -233,6 +233,7 @@ const Register = () => {
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Driver" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Driver</button>
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Housekeeper" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Housekeeper</button>
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Security Guard" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Security Guard</button>
+                        <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Profession" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Profession</button>
 
                         {/* className={({ isActive, isPending }) => isPending ? "flex  flex-row items-center duration-300 hover:shadow-xl hover:scale-105 hover:text-[#B32073]  pr-6" : isActive ? "flex text-[#B32073] flex-row items-center duration-300 scale-105 pr-6 bg-gray-300  rounded hover:text-[#B32073] hover:shadow-xl " : "text-gray-500"} */}
 

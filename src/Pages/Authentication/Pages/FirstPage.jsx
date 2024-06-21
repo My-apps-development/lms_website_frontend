@@ -151,8 +151,8 @@ const FirstPage = ({ onNext, onCompanyListChange, token }) => {
             // console.log(data);
             setCompanyList(data?.companiesdata)
             token(data?.accessToken)
-            localStorage.setItem("user", JSON.stringify(data?.user))
-            localStorage.setItem("token", JSON.stringify(data?.accessToken))
+            // localStorage.setItem("user", JSON.stringify(data?.user))
+            // localStorage.setItem("token", JSON.stringify(data?.accessToken))
 
             onCompanyListChange(data?.companiesdata)
             
@@ -217,7 +217,7 @@ const FirstPage = ({ onNext, onCompanyListChange, token }) => {
                 <img src="/Login_left_logo.jpg" alt="left_logo" className=" h-screen object-cover w-[80%]" />
             </div> */}
             <div className="flex justify-center items-center p-2 font-semibold w-full">
-            <div className="flex flex-col justify-center items-center w-[70%] p-2 gap-5 border-2 rounded-md max-sm:w-full max-sm:pb-5">
+            <div className="flex flex-col justify-center items-center w-[75%] p-2 gap-5  rounded-md max-sm:w-full max-sm:pb-5">
                     <div className="mt-5">
                         <img src="/LOGO.png" alt="logo" className="w-20 h-20 object-cover" />
                     </div>
@@ -228,6 +228,7 @@ const FirstPage = ({ onNext, onCompanyListChange, token }) => {
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Driver" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Driver</button>
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Housekeeper" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Housekeeper</button>
                         <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Security Guard" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Security Guard</button>
+                        <button className={`p-2 w-full rounded-lg border-2 border-[#B32073] ${activeButton == "Profession" ? "bg-[#B32073] text-white" : ""}`} onClick={handleClick}>Profession</button>
 
                         {/* className={({ isActive, isPending }) => isPending ? "flex  flex-row items-center duration-300 hover:shadow-xl hover:scale-105 hover:text-[#B32073]  pr-6" : isActive ? "flex text-[#B32073] flex-row items-center duration-300 scale-105 pr-6 bg-gray-300  rounded hover:text-[#B32073] hover:shadow-xl " : "text-gray-500"} */}
 
