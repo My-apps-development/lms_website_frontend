@@ -31,10 +31,11 @@ const Footer = () => {
                         <h1>Links</h1>
                     </div>
                     <div className="p-1">
-                        <p className="cursor-pointer">Home</p>
-                        <p className="cursor-pointer">Library</p>
-                        <p className="cursor-pointer">Assessment</p>
+                        <p className="cursor-pointer" onClick={()=>navigate("/")}>Home</p>
+                        <p className="cursor-pointer" onClick={()=>navigate("/library")}>Library</p>
+                        <p className="cursor-pointer" onClick={()=>navigate("/category")}>Assessment</p>
                         <p className="cursor-pointer" onClick={handleNavigatePrivacy}>Privacy Policy</p>
+                        <p className="cursor-pointer" onClick={()=>navigate("/contactus")}>Contact us</p>
                     </div>
                 </div>
                 <div className="p-2">
