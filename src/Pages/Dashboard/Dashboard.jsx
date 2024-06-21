@@ -8,7 +8,7 @@ const Dashboard = () => {
   return (
     <div>
       <Header />
-      <div className="font-semibold bg-[#F9F7FF] max-sm:text-xs">
+      <div className="font-semibold bg-[#F9F7FF] max-sm:text-xs ">
         <div className="flex justify-around items-center p-5 max-sm:flex-col max-sm:w-full max-sm:justify-center">
           <div className="flex justify-center items-start flex-col gap-5 w-[30%] p-2 max-sm:w-full">
             <h1 className="text-4xl text-[#0C0531] max-sm:text-lg">Start Your Learning Journey With Advaya FM</h1>
@@ -20,14 +20,16 @@ const Dashboard = () => {
           </div>
         </div>
 
-        <div className="flex justify-evenly items-center p-5 gap-2 max-sm:w-full max-sm:justify-center max-sm:flex-col">
-          <div className="w-[48%] h-[50%] p-2 bg-inherit shadow-xl rounded-lg max-sm:w-full">
-            <img src="/Banners/Wallpaper-1.jpeg" alt="" className=" object-cover rounded-lg" />
-          </div>
-          <div className="flex justify-center items-start flex-col gap-10 w-[52%] p-2 max-sm:w-full">
-            <h1 className="text-[#0C0531] text-4xl w-full max-sm:text-lg">Introduction to Facilities Management</h1>
-            <p>Introduction to Facilities Management
-              As per our ancient traditions of Athidi Devo Bhava in ensuring the care and well being of the guests which happens in our Bharatiya Families is the foundation of Facilities Management which means that all facilities needed for a smooth working environment in offices , schools , colleges or for a smooth and comfortable stay in the hotel there are certain functions / departments are involved in managing that function and support staff working in that function are the pillars of good work environment</p>
+        <div className="flex justify-center items-center p-2">
+          <div className="w-[90%] flex justify-evenly items-center p-5 gap-2 max-sm:w-full max-sm:justify-center max-sm:flex-col">
+            <div className="w-[40%] h-[50%] p-2 bg-inherit  max-sm:w-full">
+              <img src="/Banners/Wallpaper-1.jpeg" alt="" className=" object-cover " />
+            </div>
+            <div className="flex justify-center items-start flex-col gap-10 w-[36%] h-full  p-2 max-sm:w-full">
+              <h1 className="text-[#0C0531] text-4xl w-full max-sm:text-lg">Introduction to Facilities Management</h1>
+              <p>
+                As per our ancient traditions of Athidi Devo Bhava in ensuring the care and well being of the guests which happens in our Bharatiya Families is the foundation of Facilities Management which means that all facilities needed for a smooth working environment in offices , schools , colleges or for a smooth and comfortable stay in the hotel there are certain functions / departments are involved in managing that function and support staff working in that function are the pillars of good work environment</p>
+            </div>
           </div>
         </div>
 
@@ -35,21 +37,23 @@ const Dashboard = () => {
           <div className="flex flex-col gap-5 p-2 w-[45%] justify-center items-center max-sm:w-full">
             <h1 className="text-[#0C0531] text-4xl w-full text-center max-sm:text-lg">Why Advaya ?</h1>
             <p className="max-sm:text-center">
-              Advaya, meaning Unique in Sanskrit, was founded by Guru Prasaad, bringing over 20 years of experience in the industry. We are backed by senior leaders in Facility Management, delivering excellence since 2023.</p>
+              Advaya, meaning {'"Unique"'} in Sanskrit, was founded by Guru Prasaad, bringing over 20 years of experience in the industry. We are backed by senior leaders in Facility Management, delivering excellence since 2023.</p>
           </div>
           <div>
             <img src="/LOGO.png" alt="" className="w-[150px] h-[150px]" />
           </div>
         </div>
 
-        <div className="flex justify-around items-center p-10  max-sm:w-full max-sm:justify-center max-sm:flex-col">
-          <div className="flex flex-col gap-5 p-2 w-[45%] max-sm:w-full">
-            <h1 className="text-[#0C0531] text-4xl w-full max-sm:text-lg">FM Upskilling Initiative</h1>
-            <p>India today is so developed in terms of infrastructure and development but due to lack of trained resources working in the Facility Management services are often hampered resulting in poor upkeep of the facilities or deterioration in terms of Asset Value necessitating repairs and renovations or in pollution levels in the transportation industry or the house keepers employed both in offices and in the Hotel Industry pan India . </p>
-            <p>Today currently there are no training programs at all, or the off lines training don’t achieve their intended learning or any improvement in performance of that skill which will help in operational effectiveness for the company and also on cost savings and also ESG Goals due to the training offered .</p>
-          </div>
-          <div className="w-[55%] h-[50%] p-2 bg-inherit shadow-xl rounded-lg max-sm:w-full">
-            <img src="/Banners/Library_banner.jpeg" alt="" className="object-cover rounded-lg" />
+        <div className="flex justify-center items-center p-2">
+          <div className="w-[90%] flex justify-evenly items-center p-5 gap-2 max-sm:w-full max-sm:justify-center max-sm:flex-col">
+            <div className="flex flex-col gap-5 p-2 w-[45%] max-sm:w-full">
+              <h1 className="text-[#0C0531] text-4xl w-full max-sm:text-lg">FM Upskilling Initiative</h1>
+              <p>India today is so developed in terms of infrastructure and development but due to lack of trained resources working in the Facility Management services are often hampered resulting in poor upkeep of the facilities or deterioration in terms of Asset Value necessitating repairs and renovations or in pollution levels in the transportation industry or the house keepers employed both in offices and in the Hotel Industry pan India . </p>
+              <p>Today currently there are no training programs at all, or the off lines training don’t achieve their intended learning or any improvement in performance of that skill which will help in operational effectiveness for the company and also on cost savings and also ESG Goals due to the training offered .</p>
+            </div>
+            <div className="w-[40%] h-[50%] p-2 bg-inherit  max-sm:w-full">
+              <img src="/Banners/Library_banner.jpeg" alt="" className="object-cover " />
+            </div>
           </div>
         </div>
 
@@ -58,29 +62,43 @@ const Dashboard = () => {
             <h1 className="text-4xl max-sm:text-lg" >What is Advaya’S <span className="text-[#B32073]">FM naipuNya</span> doing UNIQUELY </h1>
             <p>We are initiating India’s Upskilling for India’s  1st Blue-collar workers in the Facilities Management Industry for roles of</p>
             <div className="grid grid-cols-3 w-full justify-center items-center gap-5 max-sm:grid-cols-1">
-              <h1 className="text-center border-2 p-2 shadow-lg bg-white">Driver</h1>
-              <h1 className="text-center border-2 p-2 shadow-lg bg-white">House Keeper</h1>
-              <h1 className="text-center border-2 p-2 shadow-lg bg-white">Security</h1>
+              <div className="relative">
+                <h1 className="text-center border-2 p-2 shadow-lg bg-white">Driver</h1>
+                <p className="absolute -top-4 left-2 bg-black w-10 text-center text-yellow-500">1</p>
+              </div>
+              <div className="relative">
+                <h1 className="text-center border-2 p-2 shadow-lg bg-white">House Keeper</h1>
+                <p className="absolute -top-4 left-2 bg-black w-10 text-center text-yellow-500">2</p>
+              </div>
+              <div className="relative">
+                <h1 className="text-center border-2 p-2 shadow-lg bg-white">Security</h1>
+                <p className="absolute -top-4 left-2 bg-black w-10 text-center text-yellow-500">3</p>
+              </div>
             </div>
           </div>
-          <div className="flex justify-around items-center p-2 w-[100%] gap-10  max-sm:w-full max-sm:justify-center max-sm:flex-col">
-            <div className="w-[55%] h-[50%] p-2 bg-inherit shadow-xl rounded-lg max-sm:w-full">
-              <img src="/Banners/Library_banner.jpeg" alt="" className="rounded-lg object-cover" />
-            </div>
-            <div className="flex flex-col gap-5 p-2 w-[45%] max-sm:w-full">
-              <p>It’s the 1st APP based training program with different modules for different roles and responsibilities with an Assessment Based Learning along with Certification and also with Industry Leaders and Associations such as TFMC , Hyderabad , IFMA Accreditation , Industry Leaders and Mentors training program and modules with interactive based learning and gradient based learning for all participants of the training program .</p>
+          <div className="flex justify-center items-center p-2 w-full">
+            <div className="w-[90%] flex justify-evenly items-center p-5 gap-2 max-sm:w-full max-sm:justify-center max-sm:flex-col">
+              <div className="w-[40%] h-[50%] p-2 bg-inherit  max-sm:w-full">
+                <img src="/Banners/Library_banner.jpeg" alt="" className=" object-cover" />
+              </div>
+              <div className="flex flex-col gap-5 p-2 w-[45%] max-sm:w-full">
+                <p>It’s the 1st APP based training program with different modules for different roles and responsibilities with an Assessment Based Learning along with Certification and also with Industry Leaders and Associations such as TFMC , Hyderabad , IFMA Accreditation , Industry Leaders and Mentors training program and modules with interactive based learning and gradient based learning for all participants of the training program .</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="flex justify-center items-center gap-2 p-2  max-sm:w-full max-sm:justify-center max-sm:flex-col">
-          <div className="flex flex-col gap-5 p-2 w-[38%] max-sm:w-full">
-            <h1 className="text-[#0C0531] text-4xl w-full max-sm:text-lg">FM Upskilling Initiative</h1>
-            <p>We are the 1st Company in the FM Upskilling to tie up with IHM , Hyderabad one of Bharat’s premier Educational Institution in the Hotel & Facilities Management Industry and one of the finest institutions for curriculum development and delivery .
-              Assessment Based Learning Methodology with 9 modules delivered monthly and in ensuring the yearly completion of the learning with refresher modules of the 9 modules delivered.</p>
-          </div>
-          <div className="w-[55%] h-[50%] p-2 bg-inherit shadow-xl rounded-lg max-sm:w-full">
-            <img src="/Banners/Wallpaper-2.jpeg" alt="" className="rounded-lg object-cover" />
+        <div className="flex justify-center items-center p-2 w-full">
+        <div className="w-[90%] flex justify-evenly items-center p-5 gap-2 max-sm:w-full max-sm:justify-center max-sm:flex-col">
+            <div className="flex flex-col gap-5 p-2 w-[38%] max-sm:w-full">
+              <h1 className="text-[#0C0531] text-4xl w-full max-sm:text-lg">FM Upskilling Initiative</h1>
+              <p>We are the 1st Company in the FM Upskilling to tie up with IHM , Hyderabad one of Bharat’s premier Educational Institution in the Hotel & Facilities Management Industry and one of the finest institutions for curriculum development and delivery .
+               </p>
+               <p> Assessment Based Learning Methodology with 9 modules delivered monthly and in ensuring the yearly completion of the learning with refresher modules of the 9 modules delivered.</p>
+            </div>
+            <div className="w-[40%] h-[50%] p-2 bg-inherit  max-sm:w-full">
+              <img src="/Banners/Wallpaper-2.jpeg" alt="" className=" object-cover" />
+            </div>
           </div>
         </div>
 
@@ -88,7 +106,7 @@ const Dashboard = () => {
           <div className="w-[50%] flex justify-center items-center gap-2 flex-col max-sm:w-full">
             <h1 className="text-[#0C0531] text-4xl w-full text-center p-2 max-sm:text-lg">Progressive Based Learning</h1>
             <p className="text-[#827A7A] ">Progressive Based Learning is basically going step wise learning process in the progressive years .</p>
-            <div>
+            <div className="flex justify-center items-center flex-col">
               <p className="text-[#B32073]">1st Year – Basic Learning</p>
               <p className="text-[#B32073]">2nd Year- 1st Level.</p>
               <p className="text-[#B32073]">3rd Year – 2nd Level</p>
@@ -109,8 +127,8 @@ const Dashboard = () => {
             <p>Payment based links also available for online based payment systems for small businesses</p>
             <p>Servers are Secure Servers Located In India and no personal information checks conducted .</p>
           </div>
-          <div className="w-[55%] h-[50%] p-2 bg-inherit shadow-xl rounded-lg max-sm:w-full">
-            <img src="/Banners/Library_banner.jpeg" alt="" className="rounded-lg object-cover" />
+          <div className="w-[40%] h-[50%] p-2 bg-inherit  max-sm:w-full">
+            <img src="/Banners/Library_banner.jpeg" alt="" className=" object-cover" />
           </div>
         </div>
 
@@ -145,14 +163,14 @@ const Dashboard = () => {
               </div>
             </div>
           </div>
-          <div className="w-[55%] h-[50%] p-2 bg-inherit shadow-xl rounded-lg max-sm:w-full">
-            <img src="/Banners/Library_banner.jpeg" alt="" className="rounded-lg object-cover" />
+          <div className="w-[40%] h-[50%] p-2 bg-inherit  max-sm:w-full">
+            <img src="/Banners/Library_banner.jpeg" alt="" className=" object-cover" />
           </div>
         </div>
 
         <div className="flex justify-around items-center gap-10 p-5 mt-5 mx-16 max-sm:w-full max-sm:justify-center max-sm:flex-col max-sm:m-0">
-          <div className="w-[55%] h-[50%] p-2 bg-inherit shadow-xl rounded-lg max-sm:w-full">
-            <img src="/Banners/Library_banner.jpeg" alt="" className="rounded-lg object-cover" />
+        <div className="w-[40%] h-[50%] p-2 bg-inherit  max-sm:w-full">
+            <img src="/Banners/Library_banner.jpeg" alt="" className=" object-cover" />
           </div>
           <div>
             <div className="flex flex-col gap-3 w-[80%]">

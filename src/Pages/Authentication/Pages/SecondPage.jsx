@@ -91,7 +91,7 @@ const SecondPage = ({ onNext, companyList, token }) => {
 
 
     return (
-        <div className="flex flex-col gap-5 font-nunito font-semibold w-full mt-10 justify-center items-center">
+        <div className="flex flex-col gap-5 font-nunito font-semibold w-full mt-10 justify-center items-center h-screen">
             <div className="flex justify-center items-center ">
                 <h1 className="text-2xl">Complete Profile</h1>
                 {/* <button className="p-2 w-24 rounded-lg border-2 border-[#B32073] flex justify-center items-center gap-2 bg-[#B32073] text-white hover:scale-95 hover:duration-300">Close</button> */}

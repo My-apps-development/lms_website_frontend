@@ -20,6 +20,7 @@ import ProtectedWrapper from './Utils/ProtectedWrapper';
 import NotFound from './Pages/NotFound/NotFound';
 import Result from './Pages/Assessment/Result';
 import Certificate from './Pages/Certificate/Certificate';
+import UnProtectedWrapper from './Utils/UnProtectedWrapper';
 // import Protection from './Pages/ScreenRocordProtection.jsx/Protection';
 
 function App() {
@@ -141,9 +142,9 @@ function App() {
 
         <Routes>
           <Route path='/' element={<Dashboard />} />
-          <Route path='/register' element={<Login />} />
-          <Route path='/login' element={<Register />} />
-          <Route path='/register/profile' element={<ProfileStepper />} />
+          <Route path='/register' element={<UnProtectedWrapper><Login /></UnProtectedWrapper>} />
+          <Route path='/login' element={<UnProtectedWrapper><Register /></UnProtectedWrapper>} />
+          <Route path='/register/profile' element={<UnProtectedWrapper><ProfileStepper /></UnProtectedWrapper>} />
           <Route path='/category' element={<ProtectedWrapper><Category /></ProtectedWrapper>} />
           <Route path='/category/courses' element={<ProtectedWrapper><Courses /></ProtectedWrapper>} />
           <Route path='/library' element={<ProtectedWrapper><Library /></ProtectedWrapper>} />

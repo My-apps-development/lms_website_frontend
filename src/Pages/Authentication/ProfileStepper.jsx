@@ -44,9 +44,14 @@ export default function HorizontalLinearStepper() {
     if (activeStep === steps.length - 1) {
 
       if (user?.approve == false) {
+        navigate("/login")
         return infoMessage("Approval is pending, wait until our team get back to you...!")
+      } else if (user?.status?.toLowerCase() === "inactive") {
+        navigate("/login")
+        return infoMessage("Your Account is Inactive,Connect with Our team to get back your profile")
       } else {
-        navigate("/")
+        navigate("/login")
+        return infoMessage("Approval is pending, wait until our team get back to you...!")
       }
 
     }
@@ -72,7 +77,11 @@ export default function HorizontalLinearStepper() {
   };
 
   const handleReset = () => {
-    navigate("/login")
+    console.log("clicked");
+    if (!user?.status === "active" && !user?.approve) {
+      return navigate("/login")
+    }
+
   };
 
   const handleCompanyListChange = (list) => {
@@ -104,7 +113,7 @@ export default function HorizontalLinearStepper() {
       </Stepper>
       {activeStep === steps.length ? (
         <React.Fragment>
-          <Typography sx={{ mt: 2, mb: 1 }}>
+          <Typography sx={{ mt: 2, mb: 1 }} className='h-[600px] text-center flex justify-center items-center font-semibold text-xl'>
             All steps completed - you&apos;re finished
           </Typography>
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
@@ -114,9 +123,9 @@ export default function HorizontalLinearStepper() {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          {activeStep === 0 && <FirstPage token= {setToken} onNext={handleNext} onCompanyListChange={handleCompanyListChange} />}
+          {activeStep === 0 && <FirstPage token={setToken} onNext={handleNext} onCompanyListChange={handleCompanyListChange} />}
           {activeStep === 1 && <SecondPage token={token} onNext={handleNext} companyList={companyList} />}
-          {activeStep === 2 && <ThirdPage token={token}/>}
+          {activeStep === 2 && <ThirdPage token={token} />}
           {/* <Typography sx={{ mt: 2, mb: 1 }}>Step {activeStep + 1}</Typography> */}
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }}>
             <Button
