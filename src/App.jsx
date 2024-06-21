@@ -21,6 +21,8 @@ import NotFound from './Pages/NotFound/NotFound';
 import Result from './Pages/Assessment/Result';
 import Certificate from './Pages/Certificate/Certificate';
 import UnProtectedWrapper from './Utils/UnProtectedWrapper';
+import Privacy from './Pages/Privacy/Privacy';
+import Contact from './Pages/Contact Us/Contact';
 // import Protection from './Pages/ScreenRocordProtection.jsx/Protection';
 
 function App() {
@@ -154,6 +156,8 @@ function App() {
           <Route path='/profile' element={<ProtectedWrapper><Profile /></ProtectedWrapper>} />
           <Route path='/assessment/quiz/result' element={<ProtectedWrapper><Result /></ProtectedWrapper>} />
           <Route path='/certificate' element={<ProtectedWrapper><Certificate /></ProtectedWrapper>} />
+          <Route path='/privacy-policy' element={<Privacy />} />
+          <Route path='/contactus' element={<Contact /> }/>
           <Route path='*' element={<NotFound />} />
 
         </Routes>

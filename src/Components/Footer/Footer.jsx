@@ -1,8 +1,15 @@
 import { FaFacebook } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Footer = () => {
+    const navigate = useNavigate()
+
+    const handleNavigatePrivacy = (e) => {
+        e.preventDefault()
+        navigate("/privacy-policy")
+    }
     return (
         <div className="flex justify-center items-center w-full flex-col gap-5 font-semibold font-nunito text-white bg-[#B32073] h-96 max-sm:flex-col max-sm:h-full">
             <div className="flex justify-around items-start gap-5 w-full max-sm:flex-col max-sm:justify-center max-sm:items-center">
@@ -24,9 +31,11 @@ const Footer = () => {
                         <h1>Links</h1>
                     </div>
                     <div className="p-1">
-                        <p>Home</p>
-                        <p>Library</p>
-                        <p>Assessment</p>
+                        <p className="cursor-pointer" onClick={()=>navigate("/")}>Home</p>
+                        <p className="cursor-pointer" onClick={()=>navigate("/library")}>Library</p>
+                        <p className="cursor-pointer" onClick={()=>navigate("/category")}>Assessment</p>
+                        <p className="cursor-pointer" onClick={handleNavigatePrivacy}>Privacy Policy</p>
+                        <p className="cursor-pointer" onClick={()=>navigate("/contactus")}>Contact us</p>
                     </div>
                 </div>
                 <div className="p-2">
