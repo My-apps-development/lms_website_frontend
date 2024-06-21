@@ -156,8 +156,8 @@ function App() {
           <Route path='/profile' element={<ProtectedWrapper><Profile /></ProtectedWrapper>} />
           <Route path='/assessment/quiz/result' element={<ProtectedWrapper><Result /></ProtectedWrapper>} />
           <Route path='/certificate' element={<ProtectedWrapper><Certificate /></ProtectedWrapper>} />
-          <Route path='/privacy-policy' element={<ProtectedWrapper><Privacy /></ProtectedWrapper>} />
-          <Route path='/contactus' element={<ProtectedWrapper><Contact /></ProtectedWrapper>} />
+          <Route path='/privacy-policy' element={<Privacy />} />
+          <Route path='/contactus' element={<Contact /> }/>
           <Route path='*' element={<NotFound />} />
 
         </Routes>

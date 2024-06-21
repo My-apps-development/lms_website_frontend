@@ -61,20 +61,20 @@ export default function HorizontalLinearStepper() {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
-  const handleSkip = () => {
-    if (!isStepOptional(activeStep)) {
-      // You probably want to guard against something like this,
-      // it should never occur unless someone's actively trying to break something.
-      throw new Error("You can't skip a step that isn't optional.");
-    }
+  // const handleSkip = () => {
+  //   if (!isStepOptional(activeStep)) {
+  //     // You probably want to guard against something like this,
+  //     // it should never occur unless someone's actively trying to break something.
+  //     throw new Error("You can't skip a step that isn't optional.");
+  //   }
 
-    setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    setSkipped((prevSkipped) => {
-      const newSkipped = new Set(prevSkipped.values());
-      newSkipped.add(activeStep);
-      return newSkipped;
-    });
-  };
+  //   setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  //   setSkipped((prevSkipped) => {
+  //     const newSkipped = new Set(prevSkipped.values());
+  //     newSkipped.add(activeStep);
+  //     return newSkipped;
+  //   });
+  // };
 
   const handleReset = () => {
     console.log("clicked");
@@ -92,13 +92,13 @@ export default function HorizontalLinearStepper() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={activeStep}>
+      <Stepper style={{color:"pink"}} activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};
           if (isStepOptional(index)) {
             labelProps.optional = (
-              <Typography variant="caption"></Typography>
+              <Typography style={{color:"pink"}} variant="caption"></Typography>
             );
           }
           if (isStepSkipped(index)) {
@@ -106,7 +106,7 @@ export default function HorizontalLinearStepper() {
           }
           return (
             <Step key={label} {...stepProps} >
-              <StepLabel {...labelProps}>{label}</StepLabel>
+              <StepLabel style={{color:"pink"}} {...labelProps}>{label}</StepLabel>
             </Step>
           );
         })}
@@ -138,11 +138,11 @@ export default function HorizontalLinearStepper() {
               Back
             </Button>
             <Box sx={{ flex: '1 1 auto' }} />
-            {isStepOptional(activeStep) && (
+            {/* {isStepOptional(activeStep) && (
               <Button color="inherit" onClick={handleSkip} sx={{ mr: 1 }} style={{ color: "#B32073" }}>
                 Skip
               </Button>
-            )}
+            )} */}
 
             <Button onClick={handleNext} style={{ color: "#B32073" }}>
               {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
