@@ -1,15 +1,15 @@
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 import Footer from "../../Components/Footer/Footer"
 import Header from "../../Components/Header/Header"
 
 
 const Dashboard = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   return (
     <div>
       <Header />
       <div className="font-semibold bg-[#F9F7FF] max-sm:text-xs ">
-        <div className="flex justify-around items-center p-5 max-sm:flex-col max-sm:w-full max-sm:justify-center">
+        {/* <div className="flex justify-around items-center p-5 max-sm:flex-col max-sm:w-full max-sm:justify-center">
           <div className="flex justify-center items-start flex-col gap-5 w-[30%] p-2 max-sm:w-full">
             <h1 className="text-4xl text-[#0C0531] max-sm:text-lg">Start Your Learning Journey With Advaya FM</h1>
             <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC,</p>
@@ -18,7 +18,7 @@ const Dashboard = () => {
           <div className="max-sm:hidden">
             <img src="/Login_left_logo.jpg" alt="" className="w-96 h-96 object-cover" />
           </div>
-        </div>
+        </div> */}
 
         <div className="flex justify-center items-center p-2">
           <div className="w-[90%] flex justify-evenly items-center p-5 gap-2 max-sm:w-full max-sm:justify-center max-sm:flex-col">
