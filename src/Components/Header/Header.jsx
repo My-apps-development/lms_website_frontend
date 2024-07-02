@@ -88,6 +88,21 @@ const Header = () => {
                             <p>Library</p>
                         </div>
                     </NavLink>
+
+                    <NavLink to="/privacy" className={({ isActive, isPending }) =>
+                        isPending ? "" : isActive ? "py-1 border-b-2 border-[#B32073]  border-opacity-100 text-[#B32073] duration-200 cursor-pointer max-sm:text-xs" : ""
+                    }>
+                        <div className="p-2">
+                            <p>Privacy</p>
+                        </div>
+                    </NavLink>
+                    <NavLink to="/contactus" className={({ isActive, isPending }) =>
+                        isPending ? "" : isActive ? "py-1 border-b-2 border-[#B32073]  border-opacity-100 text-[#B32073] duration-200 cursor-pointer max-sm:text-xs" : ""
+                    }>
+                        <div className="p-2">
+                            <p>Contact</p>
+                        </div>
+                    </NavLink>
                     {/* 
                     <NavLink to="/assessment">
                         <div className="p-2">

@@ -6,7 +6,7 @@ const Privacy = () => {
     return (
         <div>
             <Header />
-            <div className="w-full px-32 flex flex-col gap-5 font-semibold my-5">
+            <div className="w-full px-32 flex flex-col gap-5 font-semibold my-5 max-sm:px-5">
                 <div className="w-full flex flex-col gap-3">
                     <h1 className="text-3xl"> <b>Privacy Policy</b></h1>
                     <p>Last updated May 22, 2024</p>
